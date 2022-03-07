@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 class LocalizationService {
-  late final Locale locale;
+  final Locale locale;
   static late Locale currentLocale;
 
   LocalizationService(this.locale) {
@@ -17,11 +17,11 @@ class LocalizationService {
     return Localizations.of(context, LocalizationService);
   }
 
-  late Map<String, String> _localizedString;
+  Map<String, String> _localizedString = {};
 
   Future<void> load() async {
     final jsonString =
-        await rootBundle.loadString('lang/${locale.languageCode}.json');
+        await rootBundle.loadString('assets/longs/${locale.languageCode}.json');
 
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);
 
