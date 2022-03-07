@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:holping_needy_project/features/sigin%20sigup/long_in.dart';
+import 'package:get/get.dart';
+import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
+import 'package:holping_needy_project/localization/locale_provider.dart';
+import 'package:holping_needy_project/pages/login.dart';
 
 import 'pages/homepage.dart';
 import 'pages/login.dart';
@@ -11,7 +14,9 @@ import 'pages/sign_up2.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +24,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      supportedLocales: LocalizationService.supportedLocales,
+      localizationsDelegates: LocalizationService.localizationsDelegate,
+      localeResolutionCallback: LocalizationService.localeResolutionCallBack,
       scaffoldMessengerKey: Utils.messengerKey,
+
       home: DefaultTabController(length: 3,child: HomePage(),),
     );
   }
