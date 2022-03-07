@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
+import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
+import 'package:holping_needy_project/localization/t_key_v.dart';
+import 'package:holping_needy_project/pages/sign_up.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -8,34 +13,64 @@ class LogIn extends StatefulWidget {
 }
 
 class LogInState extends State<LogIn> {
-  TextEditingController username = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController passward = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            appBar(logo: 'Let\'s Go', bigTitle: 'Login', size: 90, left: 220),
-            const SizedBox(height: 10),
-            textField(
-                labelText: 'Username', controller: username, onChanged: (v) {}),
-            const SizedBox(height: 50),
-            textField(
-                labelText: 'Passward', controller: passward, onChanged: (v) {}),
-            const SizedBox(height: 50),
-            button(textButton: 'Log in', onPressed: () {}),
-            const SizedBox(height: 30),
-            textAndButton(
-                text: 'Forget your passward ?',
-                onPressed: () {},
-                textButton: 'reset'),
-            textAndButton(
-                text: 'Don\'t have an account ?',
-                onPressed: () {},
-                textButton: 'Sign up with us'),
-            const SizedBox(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              appBar(
+                  logo: 'Let\'s Go',
+                  bigTitle: 'Login',
+                  size: SizeConfig.defaultSize! * 15,
+                  left: SizeConfig.defaultSize! * 20),
+              SizedBox(height: SizeConfig.screenHeight! * .15),
+              SizedBox(
+                height: SizeConfig.screenHeight! * .10,
+                width: SizeConfig.screenWidth! / 1.1,
+                child: TextFormFieldItem(
+                    labelText: '',
+                    controller: email,
+                    keyboardType: TextInputType.emailAddress,
+                    errmess: "Please Fill email Input",
+                    hintText: "Please enter your email "),
+              ),
+
+              SizedBox(
+                height: SizeConfig.screenHeight! * .10,
+                width: SizeConfig.screenWidth! / 1.1,
+                child: TextFormFieldItem(
+                    labelText: 'Passwoed',
+                    controller: passward,
+                    keyboardType: TextInputType.visiblePassword,
+                    errmess: "Please Fill password Input",
+                    hintText: "Please  enter your password "),
+              ),
+              button(
+                  textButton: 'Log in',
+                  onPressed: () async {
+                    await signinWithEmailandPass(
+                        email: email.text, password: passward.text);
+                  }),
+              // const SizedBox(height: 30),
+              textAndButton(
+                  text: 'Forget your passward ?',
+                  onPressed: () {},
+                  textButton: 'reset'),
+              textAndButton(
+                  text: 'Don\'t have an account ?',
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                  textButton: 'Sign up with us'),
+              const SizedBox(),
+            ],
+          ),
         ),
       ),
     );
@@ -44,7 +79,7 @@ class LogInState extends State<LogIn> {
   appBar({String? logo, String? bigTitle, double? size, double? left}) {
     return Stack(children: [
       SizedBox(
-        height: 180,
+        height: SizeConfig.screenHeight! / 5,
         child: Column(children: [
           Container(
               width: double.infinity,
@@ -52,7 +87,7 @@ class LogInState extends State<LogIn> {
                   child: Text(logo!,
                       style: const TextStyle(
                           fontSize: 38, fontWeight: FontWeight.bold))),
-              height: 96,
+              height: SizeConfig.screenHeight! / 8,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -72,7 +107,7 @@ class LogInState extends State<LogIn> {
                 style:
                     const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               )),
-              height: 48,
+              height: SizeConfig.screenHeight! / 15,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 boxShadow: [

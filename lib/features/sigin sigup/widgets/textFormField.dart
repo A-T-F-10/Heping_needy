@@ -24,9 +24,7 @@ class TextFormFieldItem extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-        ),
+            labelText: labelText, border: const OutlineInputBorder()),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (email) => email != null && EmailValidator.validate(email)
             ? 'Please Fill $errmess Input'
