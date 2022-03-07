@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
+import 'package:holping_needy_project/localization/t_key_v.dart';
 
 import 'about_containt_page.dart';
 import 'connect_containt_page.dart';
@@ -13,9 +14,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(backgroundColor: ColorsTheme.darkPrimaryColor,title: Text('Let\'s Go',style: TextStyle(),),),
-      bottomNavigationBar:menu() ,
+      appBar: AppBar(
+        backgroundColor: ColorsTheme.darkPrimaryColor,
+        title: Text(
+          TKeys.login.translate(context),
+          style: TextStyle(),
+        ),
+      ),
+      bottomNavigationBar: menu(),
       body: TabBarView(
         children: [
           HomeContaintPage(),
@@ -25,8 +31,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-
 
   Widget menu() {
     return Container(
@@ -50,7 +54,6 @@ class HomePage extends StatelessWidget {
             text: "About me",
             icon: Icon(Icons.person),
           ),
-
         ],
       ),
     );

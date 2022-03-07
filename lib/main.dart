@@ -10,7 +10,6 @@ import 'pages/login.dart';
 import 'pages/sign_up.dart';
 import 'pages/sign_up2.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -29,10 +28,10 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: LocalizationService.localizationsDelegate,
       localeResolutionCallback: LocalizationService.localeResolutionCallBack,
       scaffoldMessengerKey: Utils.messengerKey,
-
-      home: DefaultTabController(length: 3,child: HomePage(),),
+      home: DefaultTabController(
+        length: 3,
+        child: HomePage(),
+      ),
     );
   }
 }
-
-
