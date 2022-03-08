@@ -7,7 +7,7 @@ class SHAREDPREFERENCES {
   var getKeyInt;
   var getKeyBool;
 
-  SHAREDPREFERENCES({required this.getKeyInt, required this.getKeyBool});
+  SHAREDPREFERENCES({this.getKeyInt, this.getKeyBool});
 
   saveData(
       {required String keyInt,
