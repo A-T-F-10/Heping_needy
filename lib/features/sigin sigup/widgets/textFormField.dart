@@ -1,5 +1,7 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:holping_needy_project/core/utils/colors.dart';
 
 // ignore: must_be_immutable
 class TextFormFieldItem extends StatelessWidget {
@@ -23,8 +25,31 @@ class TextFormFieldItem extends StatelessWidget {
     return TextFormField(
         keyboardType: keyboardType,
         controller: controller,
+
         decoration: InputDecoration(
-            labelText: labelText, border: const OutlineInputBorder()),
+          labelText: labelText,
+          hintText: hintText,
+
+          labelStyle: TextStyle(color: ColorsTheme.darkPrimaryColor),
+
+          focusColor: ColorsTheme.darkPrimaryColor,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: ColorsTheme.darkPrimaryColor,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: ColorsTheme.darkPrimaryColor,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+        ),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (email) => email != null && EmailValidator.validate(email)
             ? 'Please Fill $errmess Input'
