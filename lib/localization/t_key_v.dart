@@ -8,7 +8,7 @@ enum TKeys {
   aboutMe,
   malls,
   entertainmentAndOtherLorem,
-  ConnectWithUs,
+  connectWithUs,
   aboutContainsPage,
   restaurantsAndCoffees,
   hotelsAndChalets
