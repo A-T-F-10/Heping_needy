@@ -256,7 +256,15 @@
     "vip": "مهم",
     "notVIP": "عادي",
      "sgniturenotvalid": "توقيع غير صالح",
-    "birthdate": "تاريخ الميلاد"
+    "birthdate": "تاريخ الميلاد",
+    "home": "الصفحة الرئسية",
+    "aboutMe":"حولي",
+    "malls": "اسواق",
+    "entertainmentAndOtherLorem": "ترفيه وأخرى لوريم",
+    "ConnectWithUs":"اتصل بنا",
+    "aboutContainsPage":"حول يحتوي على صفحة",
+    " restaurantsAndCoffees": "مطاعم وقهوة",
+    "hotelsAndChalets":"الفنادق والشاليهات"
    
   
   
