@@ -3,6 +3,8 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
+import 'package:holping_needy_project/pages/home_containt_page.dart';
+import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:holping_needy_project/pages/sign_up.dart';
 
 import '../core/utils/colors.dart';
@@ -60,11 +62,36 @@ class LogInState extends State<LogIn> {
                     errmess: "Please Fill password Input",
                     hintText: "Please  enter your password "),
               ),
+              // ElevatedButton(
+              //   onPressed: () async {
+              //     if (email.text != null && email.text.isEmpty) {
+              //       return;
+              //     } else {
+              //       await createnWithEmailandPass(context,
+              //           email: email.text.trim(),
+              //           password: passward.text.trim());
+              //     }
+              //   },
+              //   child: Text("textButton"),
+              //   style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(
+              //           ColorsTheme.darkPrimaryColor)),
+              // ),
               button(
                   textButton: 'Log in',
                   onPressed: () async {
-                    await signinWithEmailandPass(
-                        email: email.text, password: passward.text);
+                    if (email.text == null && email.text.isEmpty) {
+                      return;
+                    } else {
+                      await signinWithEmailandPass(context,
+                              email: email.text.trim(),
+                              password: passward.text.trim())
+                          .then((value) => Navigator.of(context)
+                              .pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomePage()),
+                                  (route) => false));
+                    }
                   }),
               // const SizedBox(height: 30),
               textAndButton(
@@ -134,12 +161,12 @@ class LogInState extends State<LogIn> {
     ]);
   }
 
-  button({required String textButton, required Function()? onPressed}) {
+  button({required String textButton, required Function() onPressed}) {
     return SizedBox(
         height: SizeConfig.screenHeight! / 14,
         width: SizeConfig.screenWidth! * 0.6,
         child: ElevatedButton(
-          onPressed: onPressed!,
+          onPressed: onPressed,
           child: Text(textButton),
           style: ButtonStyle(
               backgroundColor:

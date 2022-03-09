@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/pages/home_containt_page.dart';
@@ -77,7 +78,14 @@ class SignUp2State extends State<SignUp2> {
           sizedBox(),
           logIn.button(
               textButton: TKeys.save.translate(context),
-              onPressed: () {
+              onPressed: () async {
+                //  if (email.text == null && email.text.isEmpty) {
+                //       return;
+                //     } else {
+                //       await createnWithEmailandPass(context,
+                //           email: email.text.trim(),
+                //           password: passward.text.trim());
+                //     }
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
                         builder: ((context) => HomeContaintPage())),

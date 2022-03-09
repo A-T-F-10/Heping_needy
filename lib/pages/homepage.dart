@@ -15,10 +15,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
           TKeys.login.translate(context),
-          style: TextStyle(),
         ),
       ),
       bottomNavigationBar: menu(),

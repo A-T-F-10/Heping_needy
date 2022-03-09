@@ -4,18 +4,30 @@ import 'package:holping_needy_project/pages/login.dart';
 
 final formkey = GlobalKey<FormState>();
 
-Future signinWithEmailandPass({String? email, String? password}) async {
+Future signinWithEmailandPass(BuildContext context,
+    {String? email, String? password}) async {
   final firebaseAuth = await FirebaseAuth.instance
-      .createUserWithEmailAndPassword(email: email!, password: password!);
+      .signInWithEmailAndPassword(email: email!, password: password!);
+
+  // final isValid = formkey.currentState!.validate();
+  // if (!isValid) return;
+  // showDialog(
+  //     barrierDismissible: false,
+  //     context: context,
+  //     builder: (context) => const Center(
+  //           child: CircularProgressIndicator(),
+  //         ));
   try {
     return firebaseAuth;
-  } on FirebaseAuthException catch (e) {}
+  } on FirebaseAuthException catch (e) {
+    Utils.showSnackBar(e.message);
+  }
 }
 
 Future createnWithEmailandPass(BuildContext context,
-    {String? email, String? password}) async {
-  final isValid = formkey.currentState!.validate();
-  if (!isValid) return;
+    {required String email, required String password}) async {
+  // final isValid = formkey.currentState!.validate();
+  // if (!isValid) return;
   showDialog(
       barrierDismissible: false,
       context: context,
@@ -26,8 +38,8 @@ Future createnWithEmailandPass(BuildContext context,
 
   final firebaseAuth =
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: email!,
-    password: password!,
+    email: email,
+    password: password,
   );
 
   try {

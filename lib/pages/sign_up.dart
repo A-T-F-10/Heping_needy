@@ -85,7 +85,14 @@ class SignUpState extends State<SignUp> {
           SizedBox(height: SizeConfig.screenHeight! / 20),
           logIn.button(
               textButton: TKeys.next.translate(context),
-              onPressed: () {
+              onPressed: () async {
+                //  if (email.text == null && email.text.isEmpty) {
+                //       return;
+                //     } else {
+                //       await createnWithEmailandPass(context,
+                //           email: email.text.trim(),
+                //           password: passward.text.trim());
+                //     }
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => SignUp2()));
               }),

@@ -6,6 +6,7 @@
     "welcomeToLilaLoginToContinue":"أهلا في LILA للمتابعة تسجيل دخول",
     "userName":"اسم المستخدم",
     "password":"كلمة السر",
+    "restaurantsAndCoffees":"مطاعم و مقاهي",
     "welcome":"اهلا !",
     "invalidPassword":"كلمة السر يحب ات تكون على الاقل 6 محارف",
     "isNotEmpty":"هذا الحقل لايمكن ان يكون فارغ ",
@@ -261,11 +262,10 @@
     "home": "الصفحة الرئسية",
     "aboutMe":"حولي",
     "malls": "اسواق",
-    "entertainmentAndOtherLorem": "ترفيه وأخرى لوريم",
+    "entertainmentAndOtherLorem": "ترفيه و أخرى لوريم",
     "connectWithUs":"اتصل بنا",
     "aboutContainsPage":"حول يحتوي على صفحة",
-    " restaurantsAndCoffees": "مطاعم وقهوة",
-    "hotelsAndChalets":"الفنادق والشاليهات",
+    "hotelsAndChalets":"الفنادق و الشاليهات",
     "you":"أنت"
    
   
