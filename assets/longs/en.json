@@ -398,5 +398,13 @@
 "pin": "pin",
 "letsGo": "Let's Go",
 "forgetpassword": "Forget Password",
-"donotHaveAnAccount": "do not Have An Account"
+"donotHaveAnAccount": "do not Have An Account",
+"home": "Home",
+"aboutMe":"aboutMe",
+"malls": "Malls",
+ "entertainmentAndOtherLorem": "Entertainment And Other Lorem",
+  "ConnectWithUs":"Connect With Us",
+  "aboutContainsPage":"About Contains Page",
+" Restaurants and Coffees": "Restaurants and Coffees",
+"hotelsAndChalets":"Hotels and Chalets"
 }

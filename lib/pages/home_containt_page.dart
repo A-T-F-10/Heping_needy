@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:holping_needy_project/core/utils/size_confg.dart';
 
 import '../core/utils/colors.dart';
-class HomeContaintPage extends StatelessWidget {
 
+class HomeContaintPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return ListView(
       children: [
         Padding(
@@ -15,28 +17,47 @@ class HomeContaintPage extends StatelessWidget {
               IconButton(
                   onPressed: () {},
                   icon: Icon(
-                    Icons.share, size: 30,
+                    Icons.share,
+                    size: 30,
                     color: ColorsTheme.darkPrimaryColor,
                   )),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.notification_important, size: 30,
-                    color: ColorsTheme.darkPrimaryColor,))
+                  icon: Icon(
+                    Icons.notification_important,
+                    size: 30,
+                    color: ColorsTheme.darkPrimaryColor,
+                  ))
             ],
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: TextField(
-            decoration: InputDecoration(focusColor: ColorsTheme.darkPrimaryColor,
-              prefix: IconButton(icon: Icon(Icons.mic),onPressed: (){},),
-              suffix: IconButton(icon: Icon(Icons.search_rounded),onPressed: (){},),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: ColorsTheme.darkPrimaryColor,),
+            decoration: InputDecoration(
+              focusColor: ColorsTheme.darkPrimaryColor,
+              prefix: IconButton(
+                icon: Icon(Icons.mic),
+                onPressed: () {},
+              ),
+              suffix: IconButton(
+                icon: Icon(Icons.search_rounded),
+                onPressed: () {},
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorsTheme.darkPrimaryColor,
+                ),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15,),
+                  Radius.circular(
+                    15,
+                  ),
                 ),
               ),
-              border: OutlineInputBorder(borderSide:BorderSide(color: ColorsTheme.darkPrimaryColor,) ,
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorsTheme.darkPrimaryColor,
+                ),
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),
                 ),
@@ -44,12 +65,15 @@ class HomeContaintPage extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          children: [
-            places('Malls', () {}),
-            places('Restaurants and Coffees', () {})
-          ],
-          mainAxisAlignment: MainAxisAlignment.center,
+        Container(
+          width: 30,
+          child: Row(
+            children: [
+              places('Malls', () {}),
+              places('Restaurants and Coffees', () {})
+            ],
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
         ),
         Row(
           children: [
@@ -61,11 +85,11 @@ class HomeContaintPage extends StatelessWidget {
       ],
     );
   }
+
   Widget places(String places, var method) {
     return InkWell(
       onTap: method,
       child: Container(
-
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: ColorsTheme.darkPrimaryColor,
@@ -79,7 +103,7 @@ class HomeContaintPage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         height: 70,
-        width: 175,
+        width: SizeConfig.screenWidth! / 2.5,
         alignment: Alignment.center,
         margin: EdgeInsets.all(10),
       ),
