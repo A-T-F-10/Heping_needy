@@ -37,7 +37,7 @@ class TextFormFieldItem extends StatelessWidget {
             borderSide: BorderSide(
               color: ColorsTheme.darkPrimaryColor,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(15),
             ),
           ),
@@ -45,7 +45,7 @@ class TextFormFieldItem extends StatelessWidget {
             borderSide: BorderSide(
               color: ColorsTheme.darkPrimaryColor,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(15),
             ),
           ),

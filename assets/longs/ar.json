@@ -1,7 +1,8 @@
 {
+  "yourFamily":"للعائلة",
     "login": "تسجيل دخول",
     "addPost": "Add Post",
-    "signUp": "Sign Up",
+    "signUp": "   تسجيل دخول مستخدم جديد ",
     "welcomeToLilaLoginToContinue":"أهلا في LILA للمتابعة تسجيل دخول",
     "userName":"اسم المستخدم",
     "password":"كلمة السر",
@@ -264,7 +265,8 @@
     "connectWithUs":"اتصل بنا",
     "aboutContainsPage":"حول يحتوي على صفحة",
     " restaurantsAndCoffees": "مطاعم وقهوة",
-    "hotelsAndChalets":"الفنادق والشاليهات"
+    "hotelsAndChalets":"الفنادق والشاليهات",
+    "you":"أنت"
    
   
   

@@ -24,7 +24,6 @@ class LogInState extends State<LogIn> {
       child: Scaffold(
         backgroundColor: ColorsTheme.secondColor,
         appBar: AppBar(
-          backgroundColor: ColorsTheme.darkPrimaryColor,
           title: Text(
             TKeys.login.translate(context),
             style: TextStyle(),
@@ -135,30 +134,12 @@ class LogInState extends State<LogIn> {
     ]);
   }
 
-  textField({
-    required String? labelText,
-    required TextEditingController? controller,
-    required Function(String)? onChanged,
-    bool dsabldText = false,
-  }) {
-    return SizedBox(
-      width: 200,
-      child: TextField(
-        obscureText: dsabldText,
-        decoration: InputDecoration(
-            labelText: labelText, border: const OutlineInputBorder()),
-        controller: controller,
-        onChanged: onChanged,
-      ),
-    );
-  }
-
-  button({required String textButton, required Function() onPressed}) {
+  button({required String textButton, required Function()? onPressed}) {
     return SizedBox(
         height: SizeConfig.screenHeight! / 14,
         width: SizeConfig.screenWidth! * 0.6,
         child: ElevatedButton(
-          onPressed: onPressed,
+          onPressed: onPressed!,
           child: Text(textButton),
           style: ButtonStyle(
               backgroundColor:
@@ -173,8 +154,13 @@ class LogInState extends State<LogIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text!,),
-        TextButton(onPressed: onPressed, child: Text(textButton!,style: TextStyle(color: ColorsTheme.darkPrimaryColor)))
+        Text(
+          text!,
+        ),
+        TextButton(
+            onPressed: onPressed,
+            child: Text(textButton!,
+                style: TextStyle(color: ColorsTheme.darkPrimaryColor)))
       ],
     );
   }
