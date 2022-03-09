@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/login.dart';
+
+import '../core/utils/colors.dart';
+import '../features/sigin sigup/widgets/textFormField.dart';
+import '../localization/t_key_v.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -18,19 +23,35 @@ class SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Column(children: [
-        logIn.appBar(
-            logo: 'Let\'s Go', bigTitle: 'Sign Up', size: 130, left: 180),
-        const SizedBox(height: 20),
-        logIn.textField(
-          labelText: 'E-mail',
-          controller: email,
-          onChanged: (v) {},
+        child: Scaffold(appBar: AppBar(
+          backgroundColor: ColorsTheme.darkPrimaryColor,
+          title: Text(
+            TKeys.signUp.translate(context),
+            style: TextStyle(),
+          ),
         ),
+
+      body: ListView(children: [
+
+        const SizedBox(height: 20),
+        SizedBox(
+          height: SizeConfig.screenHeight! * .11,
+          width: SizeConfig.screenWidth! / 8,
+          child: TextFormFieldItem(
+              labelText: 'Passwoed',
+              controller: passward,
+              keyboardType: TextInputType.visiblePassword,
+              errmess: "Please Fill password Input",
+              hintText: "Please  enter your password "),
+        ),
+
         const SizedBox(height: 45),
-        logIn.textField(
-            labelText: 'Username', controller: username, onChanged: (v) {}),
+        TextFormFieldItem(
+            labelText: 'Email',
+            controller: passward,
+            keyboardType: TextInputType.visiblePassword,
+            errmess: "Please Fill Email ",
+            hintText: "Please  enter your Email "),
         const SizedBox(height: 45),
         logIn.textField(
             labelText: 'Passward',

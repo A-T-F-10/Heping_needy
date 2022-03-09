@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey: Utils.messengerKey,
       home: const DefaultTabController(
         length: 3,
-        child: HomePage(),
+        child: LogIn(),
       ),
     );
   }
