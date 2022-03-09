@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:holping_needy_project/core/utils/colors.dart';
+import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
+import 'package:holping_needy_project/localization/t_key_v.dart';
+import 'package:holping_needy_project/pages/home_containt_page.dart';
 import 'package:holping_needy_project/pages/login.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -12,73 +17,87 @@ class SignUp2 extends StatefulWidget {
 class SignUp2State extends State<SignUp2> {
   LogInState logIn = LogInState();
   DateTime? dateTime = DateTime.now();
-  String you = 'You';
-  String yourFamily = 'Your Family';
   TextEditingController type = TextEditingController();
-  String male = 'Male';
-  String female = 'Female';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: Column(children: [
-        logIn.appBar(
-            logo: 'Let\'s Go', bigTitle: 'Sign Up', size: 130, left: 180),
-        text(text: 'Date Of Birth'),
-        const SizedBox(
-          height: 5,
+      appBar: AppBar(
+        backgroundColor: ColorsTheme.darkPrimaryColor,
+        title: Text(
+          TKeys.signUp.translate(context),
         ),
-        date(
-            day: dateTime!.day.toString(),
-            month: dateTime!.month.toString(),
-            years: dateTime!.year.toString(),
-            onTap: showDate),
-        const SizedBox(
-          height: 20,
-        ),
-        text(text: 'Who has a d'),
-        const SizedBox(
-          height: 5,
-        ),
-        bigSwitch(text1: 'You', text2: 'Your Family', onToggle: (i) {}),
-        const SizedBox(
-          height: 20,
-        ),
-        logIn.textField(
-            labelText: 'Type of', controller: type, onChanged: (v) {}),
-        const SizedBox(
-          height: 20,
-        ),
-        text(text: 'Gender'),
-        const SizedBox(
-          height: 5,
-        ),
-        bigSwitch(text1: male, text2: female, onToggle: (i) {}),
-        const SizedBox(
-          height: 20,
-        ),
-        text(text: 'Location'),
-        const SizedBox(
-          height: 5,
-        ),
-        location(),
-        const SizedBox(
-          height: 20,
-        ),
-        logIn.button(textButton: 'Save', onPressed: () {})
-      ]),
+      ),
+      body: SingleChildScrollView(
+        child: Column(children: [
+          SizedBox(
+            height: SizeConfig.screenHeight! / 10,
+          ),
+          text(text: TKeys.dateOfBirth.translate(context)),
+          SizedBox(
+            height: SizeConfig.screenHeight! / 40,
+          ),
+          date(
+              day: dateTime!.day.toString(),
+              month: dateTime!.month.toString(),
+              years: dateTime!.year.toString(),
+              onTap: showDate),
+          sizedBox(),
+          text(text: 'who has a disability'),
+          sizedBox(),
+          bigSwitch(
+              text1: TKeys.you.translate(context),
+              text2: TKeys.yourFamily.translate(context),
+              onToggle: (i) {}),
+          sizedBox(),
+          SizedBox(
+            width: SizeConfig.screenWidth! / 1.2,
+            child: TextFormFieldItem(
+                labelText: TKeys.type.translate(context),
+                controller: type,
+                keyboardType: TextInputType.visiblePassword,
+                errmess: TKeys.isNotEmpty.translate(context),
+                hintText: TKeys.type.translate(context)),
+          ),
+          sizedBox(),
+          text(text: TKeys.gender.translate(context)),
+          sizedBox(),
+          bigSwitch(
+              text1: TKeys.male.translate(context),
+              text2: TKeys.female.translate(context),
+              onToggle: (i) {}),
+          sizedBox(),
+          text(text: 'Location'),
+          sizedBox(),
+          location(
+            controller: type,
+            icon: const Icon(Icons.search),
+          ),
+          sizedBox(),
+          logIn.button(
+              textButton: TKeys.save.translate(context),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: ((context) => HomeContaintPage())),
+                    (route) => false);
+              }),
+          sizedBox(),
+        ]),
+      ),
     ));
   }
 
   text({required String text}) {
     return SizedBox(
-      width: 300,
+      width: SizeConfig.screenWidth! / 1.5,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             text,
-            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -90,56 +109,38 @@ class SignUp2State extends State<SignUp2> {
       required String month,
       required String years,
       Function()? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 30,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Container(
+          width: SizeConfig.screenWidth! * 0.41,
+          height: SizeConfig.screenHeight! / 13,
+          decoration: BoxDecoration(
+            color: ColorsTheme.secondColor,
+            boxShadow: [
+              BoxShadow(
+                color: ColorsTheme.secondColor,
+                blurRadius: 10,
+              ),
+              //BoxShadow()
+            ],
           ),
-          Container(
-            width: 150,
-            height: 50,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 0.5,
-                ),
-                //BoxShadow()
-              ],
-            ),
+          child: InkWell(
+            onTap: onTap,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  color: Colors.white,
-                  width: 44,
-                  height: 50,
-                  // ignore: prefer_const_constructors
-                  child: Center(child: Text(day)),
-                ),
-                Container(
-                  color: Colors.white,
-                  width: 44,
-                  height: 50,
-                  // ignore: prefer_const_constructors
-                  child: Center(child: Text(month)),
-                ),
-                Container(
-                  color: Colors.white,
-                  width: 61,
-                  height: 50,
-                  // ignore: prefer_const_constructors
-                  child: Center(child: Text(years)),
-                )
+                dateOfBirth(date: day),
+                dateOfBirth(date: month),
+                dateOfBirth(date: years),
               ],
             ),
           ),
-        ],
-      ),
+        ),
+        SizedBox(
+          width: SizeConfig.screenWidth! / 5,
+        ),
+      ],
     );
   }
 
@@ -150,7 +151,11 @@ class SignUp2State extends State<SignUp2> {
       firstDate: DateTime(1960),
       lastDate: DateTime.now(),
     ).then((value) => setState(() {
-          dateTime = value;
+          if (value != null) {
+            dateTime = value;
+          } else {
+            dateTime = DateTime.now();
+          }
         }));
   }
 
@@ -161,46 +166,57 @@ class SignUp2State extends State<SignUp2> {
     return ToggleSwitch(
       totalSwitches: 2,
       labels: [text1, text2],
-      minHeight: 50,
-      minWidth: 150,
+      minHeight: SizeConfig.screenHeight! / 10.9,
+      minWidth: SizeConfig.screenWidth! / 3,
       cornerRadius: 5,
-      activeBgColor: const [
-        Colors.blue,
-      ],
       onToggle: onToggle,
     );
   }
 
-  location() {
-    return Container(
-      width: 300,
-      height: 50,
-      decoration: const BoxDecoration(
-        color: Colors.grey,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 0.5,
-          ),
-          //BoxShadow()
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            color: Colors.white,
-            width: 240,
-            height: 50,
-          ),
-          Container(
-              color: Colors.grey,
-              width: 60,
-              height: 50,
-              // ignore: prefer_const_constructors
-              child: Center(child: Icon(Icons.search))),
-        ],
-      ),
-    );
+  location({
+    required TextEditingController controller,
+    required Icon icon,
+  }) {
+    return SizedBox(
+        width: SizeConfig.screenWidth! / 1.2,
+        child: TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+              suffixIcon: icon,
+              labelStyle: TextStyle(color: ColorsTheme.darkPrimaryColor),
+              focusColor: ColorsTheme.darkPrimaryColor,
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorsTheme.darkPrimaryColor,
+                ),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(15),
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorsTheme.darkPrimaryColor,
+                ),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(15),
+                ),
+              ),
+            )));
   }
+}
+
+Widget dateOfBirth({required String date}) {
+  return Container(
+    color: Colors.white,
+    width: SizeConfig.screenWidth! / 7.5,
+    height: SizeConfig.screenHeight! / 10,
+    // ignore: prefer_const_constructors
+    child: Center(child: Text(date)),
+  );
+}
+
+Widget sizedBox() {
+  return SizedBox(
+    height: SizeConfig.screenHeight! / 40,
+  );
 }

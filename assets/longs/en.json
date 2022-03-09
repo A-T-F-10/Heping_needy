@@ -2,6 +2,7 @@
 "login": "Login",
 "addPost": "Add Post",
 "signUp": "Sign Up",
+
 "welcomeToLilaLoginToContinue":"Welcome To LILA Login To Continue",
 "loginText":"Enter your username and password",
 "userName":"Username",
@@ -389,6 +390,7 @@
 "loggedOut": "logged Out",
 "leave": "leave",
 "breeak": "break",
+"yourFamily":"Your Family",
 "noImages": "no Images",
 "employeeList": "employee List",
 "checkOut": "checkOut",
@@ -402,9 +404,10 @@
 "home": "Home",
 "aboutMe":"aboutMe",
 "malls": "Malls",
- "entertainmentAndOtherLorem": "Entertainment And Other Lorem",
-  "ConnectWithUs":"Connect With Us",
-  "aboutContainsPage":"About Contains Page",
+"entertainmentAndOtherLorem": "Entertainment And Other Lorem",
+"ConnectWithUs":"Connect With Us",
+"aboutContainsPage":"About Contains Page",
 " Restaurants and Coffees": "Restaurants and Coffees",
-"hotelsAndChalets":"Hotels and Chalets"
+"hotelsAndChalets":"Hotels and Chalets",
+"you":"You"
 }

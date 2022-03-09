@@ -5,6 +5,8 @@ import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormFie
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/pages/sign_up.dart';
 
+import '../core/utils/colors.dart';
+
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
 
@@ -20,20 +22,28 @@ class LogInState extends State<LogIn> {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorsTheme.secondColor,
+        appBar: AppBar(
+          title: Text(
+            TKeys.login.translate(context),
+            style: TextStyle(),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              appBar(
-                  logo: 'Let\'s Go',
-                  bigTitle: 'Login',
-                  size: SizeConfig.defaultSize! * 15,
-                  left: SizeConfig.defaultSize! * 20),
-              SizedBox(height: SizeConfig.screenHeight! * .15),
               SizedBox(
-                height: SizeConfig.screenHeight! * .10,
+                child: Image.asset(
+                  'assets/images/Logo.png',
+                ),
+                height: SizeConfig.screenHeight! * .30,
+              ),
+              SizedBox(height: SizeConfig.screenHeight! * .10),
+              SizedBox(
+                height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
-                    labelText: '',
+                    labelText: 'Email',
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
                     errmess: "Please Fill email Input",
@@ -41,7 +51,7 @@ class LogInState extends State<LogIn> {
               ),
 
               SizedBox(
-                height: SizeConfig.screenHeight! * .10,
+                height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
                     labelText: 'Passwoed',
@@ -124,29 +134,17 @@ class LogInState extends State<LogIn> {
     ]);
   }
 
-  textField({
-    required String? labelText,
-    required TextEditingController? controller,
-    required Function(String)? onChanged,
-    bool dsabldText = false,
-  }) {
+  button({required String textButton, required Function()? onPressed}) {
     return SizedBox(
-      width: 300,
-      child: TextField(
-        obscureText: dsabldText,
-        decoration: InputDecoration(
-            labelText: labelText, border: const OutlineInputBorder()),
-        controller: controller,
-        onChanged: onChanged,
-      ),
-    );
-  }
-
-  button({required String textButton, required Function() onPressed}) {
-    return SizedBox(
-        height: 50,
-        width: 300,
-        child: ElevatedButton(onPressed: onPressed, child: Text(textButton)));
+        height: SizeConfig.screenHeight! / 14,
+        width: SizeConfig.screenWidth! * 0.6,
+        child: ElevatedButton(
+          onPressed: onPressed!,
+          child: Text(textButton),
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(ColorsTheme.darkPrimaryColor)),
+        ));
   }
 
   textAndButton(
@@ -156,8 +154,13 @@ class LogInState extends State<LogIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text!),
-        TextButton(onPressed: onPressed, child: Text(textButton!))
+        Text(
+          text!,
+        ),
+        TextButton(
+            onPressed: onPressed,
+            child: Text(textButton!,
+                style: TextStyle(color: ColorsTheme.darkPrimaryColor)))
       ],
     );
   }

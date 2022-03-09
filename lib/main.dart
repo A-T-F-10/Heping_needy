@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/localization/locale_provider.dart';
+import 'package:holping_needy_project/pages/login.dart';
 
 import 'pages/homepage.dart';
 
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ColorsTheme.themeData,
       textDirection: TextDirection.ltr,
       supportedLocales: LocalizationService.supportedLocales,
       localizationsDelegates: LocalizationService.localizationsDelegate,
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey: Utils.messengerKey,
       home: const DefaultTabController(
         length: 3,
-        child: HomePage(),
+        child: LogIn(),
       ),
     );
   }
