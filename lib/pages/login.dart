@@ -3,6 +3,8 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
+import 'package:holping_needy_project/models/sharedpreferances_users.dart';
+import 'package:holping_needy_project/models/user_info/keys_sharedpreferances.dart';
 import 'package:holping_needy_project/pages/home_containt_page.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:holping_needy_project/pages/sign_up.dart';
@@ -19,6 +21,14 @@ class LogIn extends StatefulWidget {
 class LogInState extends State<LogIn> {
   TextEditingController email = TextEditingController();
   TextEditingController passward = TextEditingController();
+  @override
+  void initState() {
+    UserInfoProvider()
+        .getData(KeysSharedpreferances.EMAIL)
+        .then((value) => print(value));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

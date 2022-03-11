@@ -5,8 +5,14 @@ import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/pages/home_containt_page.dart';
+import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:holping_needy_project/pages/login.dart';
+import 'package:holping_needy_project/provider/model/modelsApp.dart';
+import 'package:provider/provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+
+import '../models/sharedpreferances_users.dart';
+import '../models/user_info/users.dart';
 
 class SignUp2 extends StatefulWidget {
   const SignUp2({Key? key}) : super(key: key);
@@ -16,9 +22,13 @@ class SignUp2 extends StatefulWidget {
 }
 
 class SignUp2State extends State<SignUp2> {
+  Users users = Users();
+
   LogInState logIn = LogInState();
-  DateTime? dateTime = DateTime.now();
+  DateTime dateTime = DateTime.now();
+
   TextEditingController type = TextEditingController();
+  TextEditingController locationUser = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +50,9 @@ class SignUp2State extends State<SignUp2> {
             height: SizeConfig.screenHeight! / 40,
           ),
           date(
-              day: dateTime!.day.toString(),
-              month: dateTime!.month.toString(),
-              years: dateTime!.year.toString(),
+              day: dateTime.day.toString(),
+              month: dateTime.month.toString(),
+              years: dateTime.year.toString(),
               onTap: showDate),
           sizedBox(),
           text(text: 'who has a disability'),
@@ -50,7 +60,9 @@ class SignUp2State extends State<SignUp2> {
           bigSwitch(
               text1: TKeys.you.translate(context),
               text2: TKeys.yourFamily.translate(context),
-              onToggle: (i) {}),
+              onToggle: (i) {
+                users.disability = i!;
+              }),
           sizedBox(),
           SizedBox(
             width: SizeConfig.screenWidth! / 1.2,
@@ -67,28 +79,26 @@ class SignUp2State extends State<SignUp2> {
           bigSwitch(
               text1: TKeys.male.translate(context),
               text2: TKeys.female.translate(context),
-              onToggle: (i) {}),
+              onToggle: (i) {
+                users.gender = i!;
+              }),
           sizedBox(),
           text(text: 'Location'),
           sizedBox(),
           location(
-            controller: type,
+            controller: locationUser,
             icon: const Icon(Icons.search),
           ),
           sizedBox(),
           logIn.button(
               textButton: TKeys.save.translate(context),
-              onPressed: () async {
-                //  if (email.text == null && email.text.isEmpty) {
-                //       return;
-                //     } else {
-                //       await createnWithEmailandPass(context,
-                //           email: email.text.trim(),
-                //           password: passward.text.trim());
-                //     }
+              onPressed: () {
+                users.type = type.text;
+                users.location = locationUser.text;
+                UserInfoProvider().saveData(value: users);
+
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: ((context) => HomeContaintPage())),
+                    MaterialPageRoute(builder: ((context) => LogIn())),
                     (route) => false);
               }),
           sizedBox(),
@@ -161,8 +171,10 @@ class SignUp2State extends State<SignUp2> {
     ).then((value) => setState(() {
           if (value != null) {
             dateTime = value;
+            users.age = dateTime.toString();
           } else {
             dateTime = DateTime.now();
+            users.age = dateTime.toString();
           }
         }));
   }

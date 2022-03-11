@@ -13,19 +13,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          TKeys.login.translate(context),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            TKeys.login.translate(context),
+          ),
         ),
-      ),
-      bottomNavigationBar: menu(),
-      body: TabBarView(
-        children: [
-          HomeContaintPage(),
-          AboutContaintPage(),
-          ConnectContaintPage(),
-        ],
+        bottomNavigationBar: menu(),
+        body: TabBarView(
+          children: [
+            HomeContaintPage(),
+            AboutContaintPage(),
+            ConnectContaintPage(),
+          ],
+        ),
       ),
     );
   }

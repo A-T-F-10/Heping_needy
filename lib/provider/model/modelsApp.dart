@@ -1,35 +1,39 @@
 // import 'dart:convert';
 
-// class Models {
-//   String? uesrName;
-//   int? age;
-//   String? email;
-//   String? password;
-//   String? confimPassword;
+// import 'package:flutter/cupertino.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
-//   // Models();
+// import '../../models/sharedpreferances_users.dart';
+// import '../../models/user_info/users.dart';
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'uesrName': uesrName,
-//       'age': age,
-//       'email': email,
-//       'password': password,
-//       'confim_password': confimPassword,
-//     };
+// class ProviderHelper extends ChangeNotifier {
+//   UserInfoProvider? sharedPre;
+//   ProviderHelper({
+//     Users
+//   });
+
+//   setData({required String user, required String userEmail}) {
+//     if (userEmail != '' && user != '') {
+//       usesrName = user;
+//       email = userEmail;
+//     }
+//     notifyListeners();
 //   }
 
-//   factory Models.fromMap(Map<String, dynamic> map) {
-//     return Models(
-//       uesrName: map['uesrName'] ?? '',
-//       age: map['age']?.toInt() ?? 0,
-//       email: map['email'] ?? '',
-//       password: map['password'] ?? '',
-//       confimPassword: map['confimPassword'] ?? '',
-//     );
+//   finishAddDate(
+//       {required String userAge,
+//       required String loc,
+//       required int gen,
+//       required String typeUser,
+//       required int disa}) {
+//     age = userAge;
+//     location = loc;
+//     gender = gen;
+//     type = typeUser;
+//     disability = disa;
+//     ProviderHelper pro = ProviderHelper(age: age);
+//     notifyListeners();
 //   }
 
-//   String toJson() => json.encode(toMap());
-
-//   factory Models.fromJson(String source) => Models.fromMap(json.decode(source));
+//   sharedPreferencesAdd() {}
 // }

@@ -1,18 +1,14 @@
-class Users{
-  String? email;
-  String? password;
-
-  Users({this.email,this.password});
-  Users.fromJson(Map<String,dynamic> json){
-    email=json['email'];
-    password=json['password'];
-
-  }
-  Map toMop(){
-
-    return{'email':email,'password':password };
-  }
-
-
-
+class Users {
+  String age;
+  int gender;
+  String location;
+  int disability;
+  String type;
+  Users({
+    this.age = '',
+    this.gender = 0,
+    this.location = '',
+    this.disability = 0,
+    this.type = '',
+  });
 }

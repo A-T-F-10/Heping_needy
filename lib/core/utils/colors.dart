@@ -9,6 +9,11 @@ class ColorsTheme {
   static Color blackColor = Color(0xFF212121);
 
   static ThemeData themeData = ThemeData(
+      timePickerTheme: TimePickerThemeData(
+          backgroundColor: darkPrimaryColor,
+          dialBackgroundColor: darkPrimaryColor,
+          inputDecorationTheme:
+              InputDecorationTheme(fillColor: darkPrimaryColor)),
       scaffoldBackgroundColor: secondColor,
       appBarTheme: AppBarTheme(color: darkPrimaryColor),
       primaryColor: darkPrimaryColor);

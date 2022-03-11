@@ -5,15 +5,16 @@ import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/localization/locale_provider.dart';
 import 'package:holping_needy_project/pages/login.dart';
+import 'package:holping_needy_project/pages/sign_up2.dart';
+import 'package:holping_needy_project/provider/model/modelsApp.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/homepage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-    const MyApp(),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,10 +29,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: LocalizationService.localizationsDelegate,
       localeResolutionCallback: LocalizationService.localeResolutionCallBack,
       scaffoldMessengerKey: Utils.messengerKey,
-      home: const DefaultTabController(
-        length: 3,
-        child: HomePage(),
-      ),
+      home: LogIn(),
     );
   }
 }

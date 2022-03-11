@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/login.dart';
 import 'package:holping_needy_project/pages/sign_up2.dart';
+import 'package:holping_needy_project/provider/model/modelsApp.dart';
+import 'package:provider/provider.dart';
 
 import '../core/utils/colors.dart';
 import '../features/sigin sigup/widgets/textFormField.dart';
 import '../localization/t_key_v.dart';
+import '../models/user_info/users.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class SignUpState extends State<SignUp> {
   TextEditingController username = TextEditingController();
   TextEditingController passward = TextEditingController();
   TextEditingController confirmPassward = TextEditingController();
+  Users users = Users();
 
   @override
   Widget build(BuildContext context) {
