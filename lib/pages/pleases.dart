@@ -20,8 +20,10 @@ class Pleases extends StatelessWidget {
               elevation: 10,
               child: ListTile(
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (__) => InofPlease()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (__) => InofPlease(
+                            itme,
+                          )));
                 },
                 title: Text(nameIfon[itme]),
               ),

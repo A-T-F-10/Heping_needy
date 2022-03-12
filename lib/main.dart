@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: LocalizationService.localizationsDelegate,
       localeResolutionCallback: LocalizationService.localeResolutionCallBack,
       scaffoldMessengerKey: Utils.messengerKey,
-      home: LogIn(),
+      home: HomePage(),
     );
   }
 }
