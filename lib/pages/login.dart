@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
-import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
+import 'package:holping_needy_project/core/widgets/snack_bar.dart';
+import 'package:holping_needy_project/core/widgets/text_form_field.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:holping_needy_project/pages/sign_up.dart';
-import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
-
 import '../core/utils/colors.dart';
 
 class LogIn extends StatefulWidget {
@@ -62,6 +61,7 @@ class LogInState extends State<LogIn> {
                 child: TextFormFieldItem(
                     labelText: 'Passwoed',
                     controller: passward,
+                    obscureText: true,
                     keyboardType: TextInputType.visiblePassword,
                     errmess: "Please Fill password Input",
                     hintText: "Please  enter your password "),
@@ -69,10 +69,10 @@ class LogInState extends State<LogIn> {
               button(
                   textButton: 'Log in',
                   onPressed: () async {
-                    final snackBar = SnackBar(
-                        content:
-                            Text(TKeys.enterEmailAddress.translate(context)));
                     if (email.text == null && email.text.isEmpty) {
+                      // ignore: deprecated_member_use
+                      globalKey.currentState?.showSnackBar(snackBar(context));
+
                       return;
                     } else {
                       try {
@@ -86,7 +86,7 @@ class LogInState extends State<LogIn> {
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
-                        globalKey.currentState?.showSnackBar(snackBar);
+                        globalKey.currentState?.showSnackBar(snackBar(context));
                       }
                     }
                   }),

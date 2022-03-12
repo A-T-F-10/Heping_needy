@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:holping_needy_project/pages/login.dart';
 
 final formkey = GlobalKey<FormState>();
 
@@ -17,8 +16,6 @@ Future signinWithEmailandPass(BuildContext context,
 
 Future createnWithEmailandPass(BuildContext context,
     {required String email, required String password}) async {
-  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => LogIn()));
-
   final firebaseAuth =
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,

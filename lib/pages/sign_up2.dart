@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
-import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
+import 'package:holping_needy_project/core/widgets/text_form_field.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 
 import 'package:holping_needy_project/pages/login.dart';
@@ -46,7 +46,6 @@ class SignUp2State extends State<SignUp2> {
             height: SizeConfig.screenHeight! / 40,
           ),
           date(
-
               day: dateTime.day.toString(),
               month: dateTime.month.toString(),
               years: dateTime.year.toString(),
