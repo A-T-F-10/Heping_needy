@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
@@ -28,7 +30,6 @@ class SignUpState extends State<SignUp> {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   SharedpreferancesSignup1 users = SharedpreferancesSignup1();
-  GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -96,24 +97,13 @@ class SignUpState extends State<SignUp> {
           SizedBox(height: SizeConfig.screenHeight! / 20),
           logIn.button(
               textButton: TKeys.next.translate(context),
-              onPressed: () async {
-                try {
-                  if (email.text == null && email.text.isEmpty) {
-                    return;
-                  } else {
-                    await createnWithEmailandPass(context,
-                        email: email.text.trim(),
-                        password: password.text.trim());
-                  }
-                  users2.email = email.text;
-                  users2.userName = username.text;
-                  SharedpreferancesSignup().saveData(users2: users2);
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => SignUp2()));
-                } catch (e) {
-                  // ignore: deprecated_member_use
-                  globalKey.currentState?.showSnackBar(snackBar(context));
-                }
+              onPressed: () {
+                users2.email = email.text;
+                users2.userName = username.text;
+                users2.password = password.text;
+                SharedpreferancesSignup().saveData(users2: users2);
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => SignUp2()));
               }),
           SizedBox(height: SizeConfig.screenHeight! / 20),
         ]),

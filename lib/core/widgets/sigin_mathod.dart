@@ -16,17 +16,10 @@ Future signinWithEmailandPass(BuildContext context,
 
 Future createnWithEmailandPass(BuildContext context,
     {required String email, required String password}) async {
-  final firebaseAuth =
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  return await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,
     password: password,
   );
-
-  try {
-    return firebaseAuth;
-  } on FirebaseAuthException catch (e) {
-    Utils.showSnackBar(e.message);
-  }
 }
 
 class Utils {
@@ -36,7 +29,7 @@ class Utils {
 
     final snackBar = SnackBar(
       content: Text(text),
-      backgroundColor: Colors.red,
+      backgroundColor: Color.fromARGB(255, 66, 43, 41),
     );
     messengerKey.currentState!
       ..removeCurrentSnackBar()

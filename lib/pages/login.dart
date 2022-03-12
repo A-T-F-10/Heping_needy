@@ -71,7 +71,8 @@ class LogInState extends State<LogIn> {
                   onPressed: () async {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
-                      globalKey.currentState?.showSnackBar(snackBar(context));
+                      globalKey.currentState?.showSnackBar(snackBar(
+                          text: TKeys.enterEmailAddress.translate(context)));
 
                       return;
                     } else {
@@ -86,7 +87,8 @@ class LogInState extends State<LogIn> {
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
-                        globalKey.currentState?.showSnackBar(snackBar(context));
+                        globalKey.currentState?.showSnackBar(
+                            snackBar(text: TKeys.account.translate(context)));
                       }
                     }
                   }),

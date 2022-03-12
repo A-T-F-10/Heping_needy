@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
+import 'package:holping_needy_project/core/widgets/snack_bar.dart';
 import 'package:holping_needy_project/core/widgets/text_form_field.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 
 import 'package:holping_needy_project/pages/login.dart';
+import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../sharedpreferances/sharedpreferances_users.dart';
@@ -25,11 +29,20 @@ class SignUp2State extends State<SignUp2> {
 
   TextEditingController type = TextEditingController();
   TextEditingController locationUser = TextEditingController();
+  GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+    late String email;
+    SharedpreferancesSignup.getData(KeysSharedpreferances.EMAIL)
+        .then((value) => email = value);
+    late String password;
+    SharedpreferancesSignup.getData(KeysSharedpreferances.PASSWORD)
+        .then((value) => password = value);
+
     return SafeArea(
         child: Scaffold(
+      key: globalKey,
       appBar: AppBar(
         backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
@@ -88,14 +101,29 @@ class SignUp2State extends State<SignUp2> {
           sizedBox(),
           logIn.button(
               textButton: TKeys.save.translate(context),
-              onPressed: () {
+              onPressed: () async {
                 users.type = type.text;
                 users.location = locationUser.text;
                 SharedpreferancesSignup().saveData(users1: users);
 
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: ((context) => LogIn())),
-                    (route) => false);
+                try {
+                  print(email);
+                  if (email.isEmpty) {
+                    // ignore: deprecated_member_use
+                    globalKey.currentState?.showSnackBar(snackBar(
+                        text: TKeys.enterEmailAddress.translate(context)));
+                    return;
+                  } else {
+                    await createnWithEmailandPass(context,
+                        email: email.trim(), password: password);
+
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => LogIn()),
+                        (route) => true);
+                  }
+                } on FirebaseAuthException catch (e) {
+                  Utils.showSnackBar(e.message);
+                }
               }),
           sizedBox(),
         ]),

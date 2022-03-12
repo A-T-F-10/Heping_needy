@@ -6,4 +6,5 @@ class KeysSharedpreferances {
   static String DISABILLITY = 'disabillity';
   static String TYPE = 'type';
   static String LOCATION = 'location';
+  static String PASSWORD = 'password';
 }

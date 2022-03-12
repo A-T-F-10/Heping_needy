@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
-
 import 'about_containt_page.dart';
 import 'connect_containt_page.dart';
 import 'home_containt_page.dart';
@@ -17,8 +14,9 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
-            TKeys.login.translate(context),
+            TKeys.home.translate(context),
           ),
         ),
         bottomNavigationBar: menu(),
