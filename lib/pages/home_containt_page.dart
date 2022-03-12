@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
+import 'package:holping_needy_project/models/info/info.dart';
 import 'package:holping_needy_project/pages/pleases.dart';
 import '../core/utils/colors.dart';
 
@@ -75,8 +76,8 @@ class HomeContaintPage extends StatelessWidget {
           child: Row(
             children: [
               places(TKeys.malls.translate(context), () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Pleases()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Pleases(Market)));
               }),
               places(TKeys.restaurantsAndCoffees.translate(context), () {})
             ],

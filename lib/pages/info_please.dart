@@ -6,12 +6,14 @@ import 'package:holping_needy_project/pages/homepage.dart';
 class InofPlease extends StatelessWidget {
   InofPlease(this.item, {Key? key}) : super(key: key);
   int item;
+  List<String> lisr = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(nameIfon[item]),
+        title: Text(Market[0][item]),
         actions: [
           IconButton(
             icon: const Icon(Icons.home),
@@ -26,8 +28,8 @@ class InofPlease extends StatelessWidget {
       body: ListView(children: [
         SizedBox(child: Image.asset("assets/images/imageplease.jpg")),
         ListTile(
-          leading: Text('ldfskgj'),
-          title: Text("data"),
+          leading: Text(Market[1][item]),
+          title: Text(Market[2][item]),
           trailing: Icon(Icons.accessible),
         )
       ]),
