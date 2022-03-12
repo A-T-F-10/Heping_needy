@@ -3,9 +3,8 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
-import 'package:holping_needy_project/models/sharedpreferances_users.dart';
-import 'package:holping_needy_project/models/user_info/keys_sharedpreferances.dart';
-import 'package:holping_needy_project/pages/home_containt_page.dart';
+import 'package:holping_needy_project/sharedpreferances/sharedpreferances_users.dart';
+import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:holping_needy_project/pages/sign_up.dart';
 
@@ -20,14 +19,7 @@ class LogIn extends StatefulWidget {
 
 class LogInState extends State<LogIn> {
   TextEditingController email = TextEditingController();
-  TextEditingController passward = TextEditingController();
-  @override
-  void initState() {
-    UserInfoProvider()
-        .getData(KeysSharedpreferances.EMAIL)
-        .then((value) => print(value));
-    super.initState();
-  }
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +58,8 @@ class LogInState extends State<LogIn> {
                 height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
-                    labelText: 'Passwoed',
-                    controller: passward,
+                    labelText: 'Password',
+                    controller: password,
                     keyboardType: TextInputType.visiblePassword,
                     errmess: "Please Fill password Input",
                     hintText: "Please  enter your password "),
@@ -90,12 +82,15 @@ class LogInState extends State<LogIn> {
               button(
                   textButton: 'Log in',
                   onPressed: () async {
+                    SharedpreferancesSignup.getData(
+                            KeysSharedpreferances.LOCATION)
+                        .then((value) => print(value));
                     if (email.text == null && email.text.isEmpty) {
                       return;
                     } else {
                       await signinWithEmailandPass(context,
                               email: email.text.trim(),
-                              password: passward.text.trim())
+                              password: password.text.trim())
                           .then((value) => Navigator.of(context)
                               .pushAndRemoveUntil(
                                   MaterialPageRoute(
