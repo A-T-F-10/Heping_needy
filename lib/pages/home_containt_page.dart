@@ -74,19 +74,20 @@ class HomeContaintPage extends StatelessWidget {
           width: SizeConfig.screenWidth! * 10,
           child: Row(
             children: [
-              places(TKeys.malls.translate(context), () {
+              places(TKeys().malls, () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => Pleases()));
               }),
-              places(TKeys.restaurantsAndCoffees.translate(context), () {})
+              places(TKeys(
+              ).restaurantsAndCoffees, () {})
             ],
             mainAxisAlignment: MainAxisAlignment.center,
           ),
         ),
         Row(
           children: [
-            places(TKeys.entertainmentAndOtherLorem.translate(context), () {}),
-            places(TKeys.hotelsAndChalets.translate(context), () {})
+            places(TKeys().entertainmentAndOtherLorem, () {}),
+            places(TKeys().hotelsAndChalets, () {})
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),

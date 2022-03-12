@@ -1,4 +1,4 @@
-{
+Map <String,String> en={
 "login": "Login",
 "addPost": "Add Post",
 "signUp": "Sign Up",
@@ -411,4 +411,4 @@
 " Restaurants and Coffees": "Restaurants and Coffees",
 "hotelsAndChalets":"Hotels and Chalets",
 "you":"You"
-}
+};

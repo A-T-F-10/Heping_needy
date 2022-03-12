@@ -16,15 +16,16 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            TKeys.home.translate(context),
+            TKeys().home,
           ),
         ),
         bottomNavigationBar: menu(),
         body: TabBarView(
           children: [
             HomeContaintPage(),
-            AboutContaintPage(),
             ConnectContaintPage(),
+            AboutContaintPage(),
+
           ],
         ),
       ),

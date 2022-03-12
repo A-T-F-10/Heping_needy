@@ -1,4 +1,4 @@
-{
+Map<String,String>ar= {
   "yourFamily":"للعائلة",
     "login": "تسجيل دخول",
     "addPost": "Add Post",
@@ -270,4 +270,4 @@
    
   
   
-  }
+  };

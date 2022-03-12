@@ -46,7 +46,7 @@ class SignUp2State extends State<SignUp2> {
       appBar: AppBar(
         backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
-          TKeys.signUp.translate(context),
+          TKeys().signUp,
         ),
       ),
       body: SingleChildScrollView(
@@ -54,7 +54,7 @@ class SignUp2State extends State<SignUp2> {
           SizedBox(
             height: SizeConfig.screenHeight! / 10,
           ),
-          text(text: TKeys.dateOfBirth.translate(context)),
+          text(text: TKeys().dateOfBirth),
           SizedBox(
             height: SizeConfig.screenHeight! / 40,
           ),
@@ -67,8 +67,8 @@ class SignUp2State extends State<SignUp2> {
           text(text: 'who has a disability'),
           sizedBox(),
           bigSwitch(
-              text1: TKeys.you.translate(context),
-              text2: TKeys.yourFamily.translate(context),
+              text1: TKeys().you,
+              text2: TKeys().yourFamily,
               onToggle: (i) {
                 users.disability = i!;
               }),
@@ -76,18 +76,18 @@ class SignUp2State extends State<SignUp2> {
           SizedBox(
             width: SizeConfig.screenWidth! / 1.2,
             child: TextFormFieldItem(
-                labelText: TKeys.type.translate(context),
+                labelText: TKeys().type,
                 controller: type,
                 keyboardType: TextInputType.visiblePassword,
-                errmess: TKeys.isNotEmpty.translate(context),
-                hintText: TKeys.type.translate(context)),
+                errmess: TKeys().isNotEmpty,
+                hintText: TKeys().type),
           ),
           sizedBox(),
-          text(text: TKeys.gender.translate(context)),
+          text(text: TKeys().gender),
           sizedBox(),
           bigSwitch(
-              text1: TKeys.male.translate(context),
-              text2: TKeys.female.translate(context),
+              text1: TKeys().male,
+              text2: TKeys().female,
               onToggle: (i) {
                 users.gender = i!;
               }),
@@ -100,7 +100,7 @@ class SignUp2State extends State<SignUp2> {
           ),
           sizedBox(),
           logIn.button(
-              textButton: TKeys.save.translate(context),
+              textButton: TKeys().save,
               onPressed: () async {
                 users.type = type.text;
                 users.location = locationUser.text;
@@ -111,7 +111,7 @@ class SignUp2State extends State<SignUp2> {
                   if (email.isEmpty) {
                     // ignore: deprecated_member_use
                     globalKey.currentState?.showSnackBar(snackBar(
-                        text: TKeys.enterEmailAddress.translate(context)));
+                        text: TKeys().enterEmailAddress));
                     return;
                   } else {
                     await createnWithEmailandPass(context,

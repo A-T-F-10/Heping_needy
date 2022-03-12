@@ -38,7 +38,7 @@ class SignUpState extends State<SignUp> {
       appBar: AppBar(
         backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
-          TKeys.signUp.translate(context),
+          TKeys().signUp,
           style: TextStyle(),
         ),
       ),
@@ -57,46 +57,46 @@ class SignUpState extends State<SignUp> {
           SizedBox(
             width: SizeConfig.screenWidth! / 1.1,
             child: TextFormFieldItem(
-                labelText: TKeys.userName.translate(context),
+                labelText: TKeys().userName,
                 controller: username,
                 keyboardType: TextInputType.name,
-                errmess: TKeys.isNotEmpty.translate(context),
-                hintText: TKeys.userNameHint.translate(context)),
+                errmess: TKeys().isNotEmpty,
+                hintText: TKeys().userNameHint),
           ),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           SizedBox(
             width: SizeConfig.screenWidth! / 1.1,
             child: TextFormFieldItem(
-                labelText: TKeys.email.translate(context),
+                labelText: TKeys().email,
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
                 errmess: "Please Fill email Input",
-                hintText: TKeys.enterEmailAddress.translate(context)),
+                hintText: TKeys().enterEmailAddress,)
           ),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           SizedBox(
             width: SizeConfig.screenWidth! / 1.1,
             child: TextFormFieldItem(
-                labelText: TKeys.password.translate(context),
+                labelText: TKeys().password,
                 controller: password,
                 obscureText: true,
                 keyboardType: TextInputType.visiblePassword,
-                errmess: TKeys.invalidPassword.translate(context),
-                hintText: TKeys.passwordHint.translate(context)),
+                errmess: TKeys().invalidPassword,
+                hintText: TKeys().passwordHint),
           ),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           SizedBox(
               width: SizeConfig.screenWidth! / 1.1,
               child: TextFormFieldItem(
-                  labelText: TKeys.password.translate(context),
+                  labelText: TKeys().password,
                   controller: confirmPassword,
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
-                  errmess: TKeys.invalidPassword.translate(context),
-                  hintText: TKeys.passwordHint.translate(context))),
+                  errmess: TKeys().invalidPassword,
+                  hintText: TKeys().passwordHint)),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           logIn.button(
-              textButton: TKeys.next.translate(context),
+              textButton: TKeys().next,
               onPressed: () {
                 users2.email = email.text;
                 users2.userName = username.text;
