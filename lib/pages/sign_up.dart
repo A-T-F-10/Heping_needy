@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/login.dart';
 import 'package:holping_needy_project/pages/sign_up2.dart';
-import 'package:holping_needy_project/provider/model/modelsApp.dart';
-import 'package:provider/provider.dart';
+
 
 import '../core/utils/colors.dart';
 import '../features/sigin sigup/widgets/textFormField.dart';
 import '../localization/t_key_v.dart';
-import '../models/user_info/users.dart';
+import '../sharedpreferances/sharedpreferances_users.dart';
+import '../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
+import '../models/models_sharedpreferances/model_sharedpreferances_signup2.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -18,12 +19,14 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> {
+  SharedpreferancesSignup2 users2=SharedpreferancesSignup2();
+
   LogInState logIn = LogInState();
   TextEditingController email = TextEditingController();
   TextEditingController username = TextEditingController();
-  TextEditingController passward = TextEditingController();
-  TextEditingController confirmPassward = TextEditingController();
-  Users users = Users();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+  SharedpreferancesSignup1 users = SharedpreferancesSignup1();
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +75,7 @@ class SignUpState extends State<SignUp> {
             width: SizeConfig.screenWidth! / 1.1,
             child: TextFormFieldItem(
                 labelText: TKeys.password.translate(context),
-                controller: passward,
+                controller: password,
                 keyboardType: TextInputType.visiblePassword,
                 errmess: TKeys.invalidPassword.translate(context),
                 hintText: TKeys.passwordHint.translate(context)),
@@ -82,7 +85,7 @@ class SignUpState extends State<SignUp> {
               width: SizeConfig.screenWidth! / 1.1,
               child: TextFormFieldItem(
                   labelText: TKeys.password.translate(context),
-                  controller: confirmPassward,
+                  controller: confirmPassword,
                   keyboardType: TextInputType.visiblePassword,
                   errmess: TKeys.invalidPassword.translate(context),
                   hintText: TKeys.passwordHint.translate(context))),
@@ -97,6 +100,9 @@ class SignUpState extends State<SignUp> {
                 //           email: email.text.trim(),
                 //           password: passward.text.trim());
                 //     }
+                users2.email=email.text;
+                users2.userName=username.text;
+                SharedpreferancesSignup().saveData(users2: users2);
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => SignUp2()));
               }),
