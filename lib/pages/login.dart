@@ -29,16 +29,18 @@ class LogInState extends State<LogIn> {
     super.initState();
   }
 
+  GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
+        key: globalKey,
         backgroundColor: ColorsTheme.secondColor,
         appBar: AppBar(
           title: Text(
             TKeys.login.translate(context),
-            style: TextStyle(),
           ),
         ),
         body: SingleChildScrollView(
@@ -55,6 +57,7 @@ class LogInState extends State<LogIn> {
                 height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
+                    // key: formkey,
                     labelText: 'Email',
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
@@ -72,35 +75,28 @@ class LogInState extends State<LogIn> {
                     errmess: "Please Fill password Input",
                     hintText: "Please  enter your password "),
               ),
-              // ElevatedButton(
-              //   onPressed: () async {
-              //     if (email.text != null && email.text.isEmpty) {
-              //       return;
-              //     } else {
-              //       await createnWithEmailandPass(context,
-              //           email: email.text.trim(),
-              //           password: passward.text.trim());
-              //     }
-              //   },
-              //   child: Text("textButton"),
-              //   style: ButtonStyle(
-              //       backgroundColor: MaterialStateProperty.all(
-              //           ColorsTheme.darkPrimaryColor)),
-              // ),
               button(
                   textButton: 'Log in',
                   onPressed: () async {
+                    final snackBar = SnackBar(
+                        content:
+                            Text(TKeys.enterEmailAddress.translate(context)));
                     if (email.text == null && email.text.isEmpty) {
                       return;
                     } else {
-                      await signinWithEmailandPass(context,
-                              email: email.text.trim(),
-                              password: passward.text.trim())
-                          .then((value) => Navigator.of(context)
-                              .pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                      builder: (context) => const HomePage()),
-                                  (route) => false));
+                      try {
+                        await signinWithEmailandPass(context,
+                                email: email.text.trim(),
+                                password: passward.text.trim())
+                            .then((value) => Navigator.of(context)
+                                .pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (context) => const HomePage()),
+                                    (route) => false));
+                      } catch (e) {
+                        // ignore: deprecated_member_use
+                        globalKey.currentState?.showSnackBar(snackBar);
+                      }
                     }
                   }),
               // const SizedBox(height: 30),

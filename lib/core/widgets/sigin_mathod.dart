@@ -8,15 +8,6 @@ Future signinWithEmailandPass(BuildContext context,
     {String? email, String? password}) async {
   final firebaseAuth = await FirebaseAuth.instance
       .signInWithEmailAndPassword(email: email!, password: password!);
-
-  // final isValid = formkey.currentState!.validate();
-  // if (!isValid) return;
-  // showDialog(
-  //     barrierDismissible: false,
-  //     context: context,
-  //     builder: (context) => const Center(
-  //           child: CircularProgressIndicator(),
-  //         ));
   try {
     return firebaseAuth;
   } on FirebaseAuthException catch (e) {
@@ -26,15 +17,7 @@ Future signinWithEmailandPass(BuildContext context,
 
 Future createnWithEmailandPass(BuildContext context,
     {required String email, required String password}) async {
-  // final isValid = formkey.currentState!.validate();
-  // if (!isValid) return;
-  showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) => const Center(
-            child: CircularProgressIndicator(),
-          ));
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => LogIn()));
+  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => LogIn()));
 
   final firebaseAuth =
       await FirebaseAuth.instance.createUserWithEmailAndPassword(

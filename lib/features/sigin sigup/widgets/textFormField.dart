@@ -22,37 +22,36 @@ class TextFormFieldItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-        keyboardType: keyboardType,
-        controller: controller,
-
-        decoration: InputDecoration(
-          labelText: labelText,
-          hintText: hintText,
-
-          labelStyle: TextStyle(color: ColorsTheme.darkPrimaryColor),
-
-          focusColor: ColorsTheme.darkPrimaryColor,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorsTheme.darkPrimaryColor,
+    return Form(
+      key: key,
+      child: TextFormField(
+          keyboardType: keyboardType,
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: labelText,
+            hintText: hintText,
+            labelStyle: TextStyle(color: ColorsTheme.darkPrimaryColor),
+            focusColor: ColorsTheme.darkPrimaryColor,
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: ColorsTheme.darkPrimaryColor,
+              ),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
             ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(15),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: ColorsTheme.darkPrimaryColor,
+              ),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
             ),
           ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorsTheme.darkPrimaryColor,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(15),
-            ),
-          ),
-        ),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        validator: (email) => email != null && EmailValidator.validate(email)
-            ? 'Please Fill $errmess Input'
-            : null);
+          validator: (email) => email != null && EmailValidator.validate(email)
+              ? 'Please Fill $errmess Input'
+              : null),
+    );
   }
 }
