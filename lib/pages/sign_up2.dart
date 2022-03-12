@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
-import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/features/sigin%20sigup/widgets/textFormField.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
-import 'package:holping_needy_project/pages/home_containt_page.dart';
-import 'package:holping_needy_project/pages/homepage.dart';
+
 import 'package:holping_needy_project/pages/login.dart';
-import 'package:holping_needy_project/provider/model/modelsApp.dart';
-import 'package:provider/provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import '../models/sharedpreferances_users.dart';
-import '../models/user_info/users.dart';
+import '../sharedpreferances/sharedpreferances_users.dart';
+import '../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
 
 class SignUp2 extends StatefulWidget {
   const SignUp2({Key? key}) : super(key: key);
@@ -22,7 +18,7 @@ class SignUp2 extends StatefulWidget {
 }
 
 class SignUp2State extends State<SignUp2> {
-  Users users = Users();
+  SharedpreferancesSignup1 users = SharedpreferancesSignup1();
 
   LogInState logIn = LogInState();
   DateTime dateTime = DateTime.now();
@@ -50,6 +46,7 @@ class SignUp2State extends State<SignUp2> {
             height: SizeConfig.screenHeight! / 40,
           ),
           date(
+
               day: dateTime.day.toString(),
               month: dateTime.month.toString(),
               years: dateTime.year.toString(),
@@ -95,7 +92,7 @@ class SignUp2State extends State<SignUp2> {
               onPressed: () {
                 users.type = type.text;
                 users.location = locationUser.text;
-                UserInfoProvider().saveData(value: users);
+                SharedpreferancesSignup().saveData(users1: users);
 
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: ((context) => LogIn())),
@@ -171,10 +168,10 @@ class SignUp2State extends State<SignUp2> {
     ).then((value) => setState(() {
           if (value != null) {
             dateTime = value;
-            users.age = dateTime.toString();
+            users.age = dateTime;
           } else {
             dateTime = DateTime.now();
-            users.age = dateTime.toString();
+            users.age = dateTime;
           }
         }));
   }
