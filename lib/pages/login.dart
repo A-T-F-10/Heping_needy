@@ -30,7 +30,7 @@ class LogInState extends State<LogIn> {
         backgroundColor: ColorsTheme.secondColor,
         appBar: AppBar(
           title: Text(
-            TKeys.login.translate(context),
+            TKeys().login,
           ),
         ),
         body: SingleChildScrollView(
@@ -72,7 +72,7 @@ class LogInState extends State<LogIn> {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
                       globalKey.currentState?.showSnackBar(snackBar(
-                          text: TKeys.enterEmailAddress.translate(context)));
+                          text: TKeys().enterEmailAddress));
 
                       return;
                     } else {
@@ -88,7 +88,7 @@ class LogInState extends State<LogIn> {
                       } catch (e) {
                         // ignore: deprecated_member_use
                         globalKey.currentState?.showSnackBar(
-                            snackBar(text: TKeys.account.translate(context)));
+                            snackBar(text: TKeys().account));
                       }
                     }
                   }),

@@ -11,7 +11,7 @@ class Pleases extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(TKeys.male.translate(context)),
+          title: Text(TKeys().male),
         ),
         body: ListView.builder(
           itemCount: Market[0].length,

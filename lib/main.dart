@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
-import 'package:holping_needy_project/localization/locale_provider.dart';
+import 'package:holping_needy_project/localization/loale_lang/translation.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
-import 'package:holping_needy_project/pages/login.dart';
+
+
+import 'pages/about_containt_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,14 +19,15 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String locale = 'ar';
+
     return GetMaterialApp(
+      translations: Translation(),
+      locale: Locale(locale),
+      fallbackLocale: Locale(locale),
       debugShowCheckedModeBanner: false,
       theme: ColorsTheme.themeData,
-      textDirection: TextDirection.ltr,
-      supportedLocales: LocalizationService.supportedLocales,
-      localizationsDelegates: LocalizationService.localizationsDelegate,
-      localeResolutionCallback: LocalizationService.localeResolutionCallBack,
-      scaffoldMessengerKey: Utils.messengerKey,
+     scaffoldMessengerKey: Utils.messengerKey,
       home: HomePage(),
     );
   }

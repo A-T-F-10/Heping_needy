@@ -1,56 +1,48 @@
-import 'package:holping_needy_project/localization/locale_provider.dart';
+import 'package:get/get.dart';
 
-enum TKeys {
-  login,
-  password,
-  search,
-  home,
-  signUp,
-  aboutMe,
-  malls,
-  entertainmentAndOtherLorem,
-  connectWithUs,
-  aboutContainsPage,
-  restaurantsAndCoffees,
-  hotelsAndChalets,
-  next,
-  name,
-  type,
-  gender,
-  welcome,
-  userName,
-  details,
-  account,
-  phoneNumber,
-  email,
-  no,
-  passwordHint,
-  userNameHint,
-  isNotEmpty,
-  yes,
-  english,
-  arabic,
-  male,
-  female,
-  yourFamily,
-  color,
-  ok,
-  close,
-  info,
-  loginError,
-  enterEmailAddress,
-  dateOfBirth,
-  changeLanguages,
-  save,
-  invalidPassword,
-  you,
+class TKeys {
+  String login = 'login'.tr;
+  String password = 'password'.tr;
+  String search = 'search'.tr;
+  String home = 'home'.tr;
+  String signUp = 'signUp'.tr;
+  String malls = 'malls'.tr;
+  String entertainmentAndOtherLorem = 'entertainmentAndOtherLorem'.tr;
+  String connectWithUs = 'connectWithUs'.tr;
+  String aboutContainsPage = 'aboutContainsPage'.tr;
+  String restaurantsAndCoffees = 'restaurantsAndCoffees'.tr;
+  String hotelsAndChalets = 'hotelsAndChalets'.tr;
+  String next = 'next'.tr;
+  String name = 'name'.tr;
+  String type = 'type'.tr;
+  String gender = 'gender'.tr;
+  String welcome = 'welcome'.tr;
+  String userName = 'userName'.tr;
+  String details = 'details'.tr;
+  String account = 'account'.tr;
+  String phoneNumber = 'phoneNumber'.tr;
+  String email = 'email'.tr;
+  String no = 'no'.tr;
+  String passwordHint = 'passwordHint'.tr;
+  String userNameHint = 'userNameHint'.tr;
+  String isNotEmpty = 'isNotEmpty'.tr;
+  String yes = 'yes'.tr;
+  String english = 'english'.tr;
+  String arabic = 'arabic'.tr;
+  String male = 'male'.tr;
+  String female = 'female'.tr;
+  String yourFamily = 'yourFamily'.tr;
+  String color = 'color'.tr;
+  String ok = 'ok'.tr;
+  String close = 'close'.tr;
+  String info = 'info'.tr;
+  String loginError = 'loginError'.tr;
+  String enterEmailAddress = 'enterEmailAddress'.tr;
+  String dateOfBirth = 'dateOfBirth'.tr;
+  String changeLanguages = 'changeLanguages'.tr;
+  String save = 'save'.tr;
+  String invalidPassword = 'invalidPassword'.tr;
+  String you = 'you'.tr;
 }
 
 //TKeys.hello
-extension TKeysExtention on TKeys {
-  String get _string => toString().split('.')[1];
-
-  String translate(context) {
-    return LocalizationService.of(context).translate(_string) ?? '';
-  }
-}

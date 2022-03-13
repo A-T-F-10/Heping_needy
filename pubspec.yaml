@@ -44,6 +44,7 @@ dependencies:
   provider:
   toggle_switch:
   get:
+  get_storage:
   shared_preferences: 
 
 dev_dependencies:
