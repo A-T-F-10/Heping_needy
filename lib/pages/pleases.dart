@@ -4,8 +4,8 @@ import 'package:holping_needy_project/models/info/info.dart';
 import 'package:holping_needy_project/pages/info_please.dart';
 
 class Pleases extends StatelessWidget {
-  const Pleases({Key? key}) : super(key: key);
-
+  Pleases(this.lisr, {Key? key}) : super(key: key);
+  List lisr = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,16 +14,18 @@ class Pleases extends StatelessWidget {
           title: Text(TKeys().male),
         ),
         body: ListView.builder(
-          itemCount: nameIfon.length,
+          itemCount: Market[0].length,
           itemBuilder: (context, itme) {
             return Card(
               elevation: 10,
               child: ListTile(
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (__) => InofPlease()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (__) => InofPlease(
+                            itme,
+                          )));
                 },
-                title: Text(nameIfon[itme]),
+                title: Text(Market[0][itme]),
               ),
             );
           },
