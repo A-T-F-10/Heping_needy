@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
-import 'about_containt_page.dart';
-import 'connect_containt_page.dart';
-import 'home_containt_page.dart';
+import 'home/about_containt_page.dart';
+import 'home/connect_containt_page.dart';
+import 'home/home_containt_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,7 +25,6 @@ class HomePage extends StatelessWidget {
             HomeContaintPage(),
             ConnectContaintPage(),
             AboutContaintPage(),
-
           ],
         ),
       ),

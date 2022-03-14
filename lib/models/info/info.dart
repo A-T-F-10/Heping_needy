@@ -218,8 +218,26 @@ List<String> urlHotel = [
   'https://g.page/tajjeddah?share',
 ];
 
-List<List> Market = [
+List<List> market = [
   placeNameMarket,
   locationMarket,
   urlMarket,
+];
+
+List<List> hotel = [
+  placeNameHotel,
+  locationHotel,
+  urlHotel,
+];
+
+List<List> park = [
+  placeNameAmusementPark,
+  locationAmusementPark,
+  urlAmusementPark,
+];
+
+List<List> resturant = [
+  placeNameResturant,
+  locationResturant,
+  urlResturant,
 ];

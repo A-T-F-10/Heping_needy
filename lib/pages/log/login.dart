@@ -5,8 +5,8 @@ import 'package:holping_needy_project/core/widgets/snack_bar.dart';
 import 'package:holping_needy_project/core/widgets/text_form_field.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
-import 'package:holping_needy_project/pages/sign_up.dart';
-import '../core/utils/colors.dart';
+import 'package:holping_needy_project/pages/log/sign_up.dart';
+import '../../core/utils/colors.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -71,8 +71,8 @@ class LogInState extends State<LogIn> {
                   onPressed: () async {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
-                      globalKey.currentState?.showSnackBar(snackBar(
-                          text: TKeys().enterEmailAddress));
+                      globalKey.currentState?.showSnackBar(
+                          snackBar(text: TKeys().enterEmailAddress));
 
                       return;
                     } else {
@@ -87,8 +87,8 @@ class LogInState extends State<LogIn> {
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
-                        globalKey.currentState?.showSnackBar(
-                            snackBar(text: TKeys().account));
+                        globalKey.currentState
+                            ?.showSnackBar(snackBar(text: TKeys().account));
                       }
                     }
                   }),

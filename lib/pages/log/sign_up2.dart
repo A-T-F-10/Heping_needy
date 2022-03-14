@@ -7,12 +7,12 @@ import 'package:holping_needy_project/core/widgets/snack_bar.dart';
 import 'package:holping_needy_project/core/widgets/text_form_field.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 
-import 'package:holping_needy_project/pages/login.dart';
+import 'package:holping_needy_project/pages/log/login.dart';
 import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import '../sharedpreferances/sharedpreferances_users.dart';
-import '../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
+import '../../sharedpreferances/sharedpreferances_users.dart';
+import '../../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
 
 class SignUp2 extends StatefulWidget {
   const SignUp2({Key? key}) : super(key: key);
@@ -110,8 +110,8 @@ class SignUp2State extends State<SignUp2> {
                   print(email);
                   if (email.isEmpty) {
                     // ignore: deprecated_member_use
-                    globalKey.currentState?.showSnackBar(snackBar(
-                        text: TKeys().enterEmailAddress));
+                    globalKey.currentState?.showSnackBar(
+                        snackBar(text: TKeys().enterEmailAddress));
                     return;
                   } else {
                     await createnWithEmailandPass(context,

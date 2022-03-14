@@ -5,14 +5,14 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/core/widgets/snack_bar.dart';
 import 'package:holping_needy_project/core/widgets/text_form_field.dart';
-import 'package:holping_needy_project/pages/login.dart';
-import 'package:holping_needy_project/pages/sign_up2.dart';
+import 'package:holping_needy_project/pages/log/login.dart';
+import 'package:holping_needy_project/pages/log/sign_up2.dart';
 
-import '../core/utils/colors.dart';
-import '../localization/t_key_v.dart';
-import '../sharedpreferances/sharedpreferances_users.dart';
-import '../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
-import '../models/models_sharedpreferances/model_sharedpreferances_signup2.dart';
+import '../../core/utils/colors.dart';
+import '../../localization/t_key_v.dart';
+import '../../sharedpreferances/sharedpreferances_users.dart';
+import '../../models/models_sharedpreferances/model_sharedpreferances_signup1.dart';
+import '../../models/models_sharedpreferances/model_sharedpreferances_signup2.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -65,14 +65,14 @@ class SignUpState extends State<SignUp> {
           ),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           SizedBox(
-            width: SizeConfig.screenWidth! / 1.1,
-            child: TextFormFieldItem(
+              width: SizeConfig.screenWidth! / 1.1,
+              child: TextFormFieldItem(
                 labelText: TKeys().email,
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
                 errmess: "Please Fill email Input",
-                hintText: TKeys().enterEmailAddress,)
-          ),
+                hintText: TKeys().enterEmailAddress,
+              )),
           SizedBox(height: SizeConfig.screenHeight! / 20),
           SizedBox(
             width: SizeConfig.screenWidth! / 1.1,

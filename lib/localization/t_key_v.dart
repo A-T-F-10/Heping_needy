@@ -43,6 +43,15 @@ class TKeys {
   String save = 'save'.tr;
   String invalidPassword = 'invalidPassword'.tr;
   String you = 'you'.tr;
+  String volunteers = 'volunteers'.tr;
+  String suitableforchildren = 'suitableforchildren'.tr;
+  String suitableforhearing = 'suitableforhearing'.tr;
+  String suitableforthevisually = 'suitableforthevisually'.tr;
+  String suitableforthehandicapped = 'suitableforthehandicapped'.tr;
+  String music = 'music'.tr;
+  String outdoor = 'outdoor'.tr;
+  String elevator = 'elevator'.tr;
+  String information = 'information'.tr;
 }
 
 //TKeys.hello

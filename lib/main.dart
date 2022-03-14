@@ -6,17 +6,14 @@ import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/localization/loale_lang/translation.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
 
-
-import 'pages/about_containt_page.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     String locale = 'ar';
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
       fallbackLocale: Locale(locale),
       debugShowCheckedModeBanner: false,
       theme: ColorsTheme.themeData,
-     scaffoldMessengerKey: Utils.messengerKey,
+      scaffoldMessengerKey: Utils.messengerKey,
       home: HomePage(),
     );
   }
