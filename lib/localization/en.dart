@@ -1,4 +1,12 @@
 Map<String, String> en = {
+  'localeEnText':"English",
+  'localeArText':"Arabic",
+'fontSize':'font Size',
+  'gradeColor':'Grade Color',
+  "reader":'Audio Reader',
+  "language":"Language",
+  "connect":"Connect with us",
+  "setting":"Setting",
   "login": "Login",
   "addPost": "Add Post",
   "signUp": "Sign Up",

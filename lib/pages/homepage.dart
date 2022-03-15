@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
-import 'home/about_containt_page.dart';
+import 'home/settings_containt_page.dart';
 import 'home/connect_containt_page.dart';
 import 'home/home_containt_page.dart';
 
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
           children: [
             HomeContaintPage(),
             ConnectContaintPage(),
-            AboutContaintPage(),
+            SettingsContaintPage(),
           ],
         ),
       ),
@@ -42,16 +42,16 @@ class HomePage extends StatelessWidget {
         indicatorColor: Colors.blue,
         tabs: [
           Tab(
-            text: "Home",
+            text: TKeys().home,
             icon: Icon(Icons.home),
           ),
           Tab(
-            text: "Connect with us",
+            text: TKeys().connect,
             icon: Icon(Icons.contact_support),
           ),
           Tab(
-            text: "About me",
-            icon: Icon(Icons.person),
+            text: TKeys().setting,
+            icon: Icon(Icons.settings),
           ),
         ],
       ),
