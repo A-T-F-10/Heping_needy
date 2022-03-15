@@ -14,7 +14,7 @@ class HomeContaintPage extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(SizeConfig.screenHeight! / 100),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -42,7 +42,7 @@ class HomeContaintPage extends StatelessWidget {
           height: SizeConfig.screenHeight! * .28,
         ),
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
           child: TextField(
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
