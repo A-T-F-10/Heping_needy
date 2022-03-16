@@ -14,7 +14,9 @@ class HomeContaintPage extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: EdgeInsets.all(SizeConfig.screenHeight! / 100),
+          padding: EdgeInsets.all(
+            SizeConfig.defaultSize! / 10,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
