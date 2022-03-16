@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String locale = 'ar';
-
     return GetMaterialApp(
       translations: Translation(),
       locale: Locale(locale),

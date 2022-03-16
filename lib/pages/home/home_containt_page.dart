@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/core/widgets/search.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/models/info/info.dart';
 import 'package:holping_needy_project/pages/pleases/pleases.dart';
@@ -33,7 +34,7 @@ class HomeContaintPage extends StatelessWidget {
                     Icons.notification_important,
                     size: SizeConfig.defaultSize! * 3.5,
                     color: ColorsTheme.darkPrimaryColor,
-                  ))
+                  )),
             ],
           ),
         ),
@@ -46,6 +47,10 @@ class HomeContaintPage extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
           child: TextField(
+            onTap: () {
+              showSearch(context: context, delegate: Search());
+            },
+            readOnly: true,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                   borderRadius: const BorderRadius.all(
@@ -60,7 +65,9 @@ class HomeContaintPage extends StatelessWidget {
               ),
               suffix: IconButton(
                 icon: const Icon(Icons.search_rounded),
-                onPressed: () {},
+                onPressed: () {
+                  showSearch(context: context, delegate: Search());
+                },
               ),
               border: OutlineInputBorder(
                 borderSide: BorderSide(
