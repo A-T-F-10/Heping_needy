@@ -2,7 +2,6 @@ List<String> placeNameResturant = [
   'مطعم أقافي',
   'مطعم بابايا ',
   'اروما كافيية ومطعم',
-  'تشيكي تشيز (ملاهي للاطفال)',
   'مطعم وكافي بلو اويشن',
   'فقية اكواريم',
   'الواجهة البحرية',
@@ -36,7 +35,6 @@ List<String> locationResturant = [
   'Rawda district',
   'al Zahraa district',
   'al hamraa',
-  'al tahliaa',
   'al kornash',
   'al kornash',
   'al kornash',
@@ -70,7 +68,6 @@ List<String> urlResturant = [
   'https://g.page/AgaveKSA?share',
   'https://g.page/papayaksa?share',
   'https://g.page/Caffe_Aroma_ksa?share',
-  'https://goo.gl/maps/CqDuoudCmArFimhU9',
   'https://goo.gl/maps/JQAcnMkUo1o4uH1X9',
   'https://goo.gl/maps/QfjhFZE9tnCPYwTXA',
   'https://goo.gl/maps/Rg5SmwWT9T9mN3DX8',
@@ -160,6 +157,7 @@ List<String> placeNameAmusementPark = [
   'Naxos',
   'Dream ocean',
   'Le pont lamitie ',
+  'تشيكي تشيز (ملاهي للاطفال)',
 ];
 List<String> locationAmusementPark = [
   'al kornash',
@@ -177,6 +175,7 @@ List<String> locationAmusementPark = [
   ' ',
   ' ',
   ' ',
+  'al tahliaa',
 ];
 List<String> urlAmusementPark = [
   'https://goo.gl/maps/jg68n6eUoXxjCZrx9',
@@ -194,6 +193,7 @@ List<String> urlAmusementPark = [
   'https://g.page/naxosbaybeach?share',
   'https://g.page/ODreamBeach?share',
   'https://goo.gl/maps/3DX5j8kzi4hsLjzV6',
+  'https://goo.gl/maps/CqDuoudCmArFimhU9',
 ];
 
 List<String> placeNameHotel = [

@@ -1,16 +1,15 @@
 Map<String, String> ar = {
-  "setting":"الإعدادات",
-  "connect":"تواصل معنا",
-  "reader":'القارئ الصوتي',
-  "language":"اللغة",
-  'localeEnText':"الإنجليزية",
-  'localeArText':"العربية",
-  'fontSize':'الخط حجم',
-  'gradeColor':'درجة اللون',
-
-
-
+  "setting": "الإعدادات",
+  "connect": "تواصل معنا",
+  "reader": " القارئ الصوتي",
+  "language": "اللغة",
+  "localeEnText": "الإنجليزية",
+  "localeArText": "العربية",
+  "fontSize": " الخط حجم",
+  "gradeColor": " درجة اللون",
+  "volunteer": "المتطوع",
   "yourFamily": "للعائلة",
+  "age": "العمر",
   "login": "تسجيل دخول",
   "addPost": "Add Post",
   "volunteers": "المتطوعين",

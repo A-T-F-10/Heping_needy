@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
+import 'package:holping_needy_project/models/info/images_list.dart';
 import 'package:holping_needy_project/models/info/info.dart';
 import 'package:holping_needy_project/pages/pleases/info_please.dart';
 
@@ -47,6 +48,7 @@ class Search extends SearchDelegate {
                   builder: (__) => InofPlease(
                         search,
                         itme,
+                        imageListb: [],
                       )));
             },
             title: Text(matchQuery[itme]),
@@ -78,6 +80,7 @@ class Search extends SearchDelegate {
                   builder: (__) => InofPlease(
                         search,
                         itme,
+                        imageListb: [],
                       )));
             },
             title: Text(matchQuery[itme]),

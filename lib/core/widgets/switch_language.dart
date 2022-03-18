@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:holping_needy_project/localization/loale_lang/app_long.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 
@@ -13,14 +11,13 @@ class SwitchLanguageApp extends StatelessWidget {
     String localeEn = 'en';
     String localeAr = 'ar';
 
-
-
     return GetBuilder<AppLang>(
         init: AppLang(),
         builder: (c) {
           return DropdownButton(
               items: [
-                DropdownMenuItem(child: Text(TKeys().localeEnText), value:localeEn),
+                DropdownMenuItem(
+                    child: Text(TKeys().localeEnText), value: localeEn),
                 DropdownMenuItem(
                   child: Text(TKeys().localeArText),
                   value: localeAr,

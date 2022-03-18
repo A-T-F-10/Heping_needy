@@ -1,16 +1,15 @@
 import 'package:get/get.dart';
 
 class TKeys {
-  String fontSize="Font Size".tr;
-  String gradeColor="Grade Color".tr;
-
+  String fontSize = "Font Size".tr;
+  String gradeColor = "Grade Color".tr;
   String localeEnText = 'localeEnText'.tr;
   String localeArText = 'localeArText'.tr;
-  String connect=  "connect".tr;
-
-String reader='reader'.tr;
-  String setting='setting'.tr;
+  String connect = "connect".tr;
+  String reader = 'reader'.tr;
+  String setting = 'setting'.tr;
   String login = 'login'.tr;
+  String age = "age".tr;
   String password = 'password'.tr;
   String search = 'search'.tr;
   String home = 'home'.tr;
@@ -53,7 +52,8 @@ String reader='reader'.tr;
   String invalidPassword = 'invalidPassword'.tr;
   String you = 'you'.tr;
   String volunteers = 'volunteers'.tr;
-  String language='language'.tr;
+  String volunteer = 'volunteer'.tr;
+  String language = 'language'.tr;
   String suitableforchildren = 'suitableforchildren'.tr;
   String suitableforhearing = 'suitableforhearing'.tr;
   String suitableforthevisually = 'suitableforthevisually'.tr;

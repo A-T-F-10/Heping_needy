@@ -3,8 +3,15 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/pleases/info_please.dart';
 
 class Pleases extends StatelessWidget {
-  Pleases({required this.tkey, required this.lisr, Key? key}) : super(key: key);
+  Pleases(
+      {required this.lisr,
+      required this.tkey,
+      required this.imageList,
+      Key? key})
+      : super(key: key);
   List lisr = [];
+  List imageList = [];
+
   String tkey;
   @override
   Widget build(BuildContext context) {
@@ -27,6 +34,7 @@ class Pleases extends StatelessWidget {
                       builder: (__) => InofPlease(
                             lisr,
                             itme,
+                            imageListb: imageList,
                           )));
                 },
                 title: Text(lisr[0][itme]),

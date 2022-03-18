@@ -3,13 +3,16 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/list_info_please.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/models/info/Volunteers.dart';
-import 'package:holping_needy_project/models/info/images_list.dart';
+import 'package:holping_needy_project/models/info/volunteer_show_dialog.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InofPlease extends StatelessWidget {
-  InofPlease(this.lisr, this.item, {Key? key}) : super(key: key);
+  InofPlease(this.lisr, this.item, {required this.imageListb, Key? key})
+      : super(key: key);
   int item;
   List lisr = [];
+  List imageListb = [];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class InofPlease extends StatelessWidget {
         ],
       ),
       body: ListView(children: [
-        SizedBox(child: Image.asset(horelsImages[item])),
+        SizedBox(child: Image.asset(imageListb[item])),
         Card(
           elevation: 10,
           child: Column(
@@ -46,14 +49,14 @@ class InofPlease extends StatelessWidget {
                 thickness: 2,
               ),
               ListTile(
-                  leading: Icon(Icons.location_on_outlined),
-                  title: Text(lisr[1][item],
-                      style:
-                          TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                  trailing: IconButton(
-                    icon: Icon(Icons.exit_to_app),
-                    onPressed: () {},
-                  )),
+                onTap: () async {
+                  await launch(lisr[2][item]);
+                },
+                leading: Icon(Icons.location_on_outlined),
+                title: Text(lisr[1][item],
+                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
+                trailing: Icon(Icons.exit_to_app),
+              ),
             ],
           ),
         ),
@@ -72,54 +75,41 @@ class InofPlease extends StatelessWidget {
               const Divider(
                 thickness: 2,
               ),
-              ListTile(
-                subtitle: Text(volunteersgender[0]),
-                leading: const CircleAvatar(
-                  child: Icon(Icons.person),
-                ),
-                title: Text(volunteers[0],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
+              volunteersUser(
+                context: context,
+                volunteersText: volunteers[1],
+                volunteersgenders: volunteersgender[1],
+                volunteersNumber: 1,
               ),
-              ListTile(
-                subtitle: Text(volunteersgender[1]),
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(volunteers[1],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
-              ),
-              ListTile(
-                subtitle: Text(volunteersgender[2]),
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(volunteers[2],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
-              ),
-              ListTile(
-                subtitle: Text(volunteersgender[3]),
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(volunteers[3],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
-              ),
-              ListTile(
-                subtitle: Text(volunteersgender[4]),
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(volunteers[4],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
-              ),
-              ListTile(
-                subtitle: Text(volunteersgender[4]),
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(volunteers[5],
-                    style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-                trailing: Icon(Icons.call),
-              ),
+              volunteersUser(
+                  context: context,
+                  volunteersText: volunteers[5],
+                  volunteersgenders: volunteersgender[5],
+                  volunteersNumber: 5),
+              volunteersUser(
+                  context: context,
+                  volunteersText: volunteers[3],
+                  volunteersgenders: volunteersgender[3],
+                  volunteersNumber: 3),
+              volunteersUser(
+                  context: context,
+                  volunteersText: volunteers[0],
+                  volunteersgenders: volunteersgender[0],
+                  volunteersNumber: 0),
+              volunteersUser(
+                  context: context,
+                  volunteersText: volunteers[4],
+                  volunteersgenders: volunteersgender[4],
+                  volunteersNumber: 4),
+              volunteersUser(
+                  context: context,
+                  volunteersText: volunteers[2],
+                  volunteersgenders: volunteersgender[2],
+                  volunteersNumber: 2),
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         )
       ]),
@@ -167,15 +157,18 @@ class InofPlease extends StatelessWidget {
   Widget volunteersUser({
     required String volunteersText,
     required String volunteersgenders,
-    required Function onTapUser,
+    required int volunteersNumber,
+    required BuildContext context,
   }) {
     return ListTile(
-      onTap: onTapUser(),
+      onTap: () {
+        showdailg(context, volunteersNumber);
+      },
       subtitle: Text(volunteersgenders),
       leading: const CircleAvatar(child: Icon(Icons.person)),
       title: Text(volunteersText,
           style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
-      trailing: Icon(Icons.call),
+      trailing: const Icon(Icons.call),
     );
   }
 }
