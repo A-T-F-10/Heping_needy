@@ -22,38 +22,42 @@ showdailg(BuildContext context, int item) async {
                 thickness: 2,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.screenHeight! / 50),
                 child: Row(
                   children: [
                     Text(TKeys().name + " : ",
                         style:
                             TextStyle(fontSize: SizeConfig.defaultSize! * 3)),
                     Text(volunteers[item],
-                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 2))
+                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 3))
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.screenHeight! / 50),
                 child: Row(
                   children: [
                     Text(TKeys().age + " : ",
                         style:
                             TextStyle(fontSize: SizeConfig.defaultSize! * 3)),
                     Text(volunteersAge[item],
-                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 2))
+                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 3))
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.screenHeight! / 50,
+                    vertical: SizeConfig.screenHeight! / 90),
                 child: Row(
                   children: [
                     Text(TKeys().gender + " : ",
                         style:
                             TextStyle(fontSize: SizeConfig.defaultSize! * 3)),
                     Text(volunteersgender[item],
-                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 2))
+                        style: TextStyle(fontSize: SizeConfig.defaultSize! * 3))
                   ],
                 ),
               ),
@@ -69,7 +73,10 @@ showdailg(BuildContext context, int item) async {
                         await launch(
                             "whatsapp://send?phone=${volunteersNumber[item]}");
                       },
-                      icon: Icon(Icons.message)),
+                      icon: const Icon(
+                        Icons.whatsapp,
+                        color: Colors.white,
+                      )),
                   ElevatedButton.icon(
                       label: Text("Call  "),
                       onPressed: () async {

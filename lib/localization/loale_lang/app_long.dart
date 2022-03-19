@@ -3,13 +3,13 @@ import 'package:get/get.dart';
 import 'package:holping_needy_project/localization/loale_lang/locale_storage.dart';
 
 class AppLang extends GetxController {
-  var appLang = 'en';
+  var appLang = 'ar';
   @override
   void onInit() async {
     super.onInit();
     LocaleStorage localeStorage = LocaleStorage();
     appLang = await localeStorage.languageSelected == null
-        ? 'ar'
+        ? 'en'
         : await localeStorage.languageSelected;
 
     Get.updateLocale(Locale(appLang));

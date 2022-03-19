@@ -8,8 +8,8 @@ class SwitchLanguageApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String localeEn = 'en';
     String localeAr = 'ar';
+    String localeEn = 'en';
 
     return GetBuilder<AppLang>(
         init: AppLang(),

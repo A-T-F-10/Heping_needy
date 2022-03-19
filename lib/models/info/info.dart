@@ -213,7 +213,7 @@ List<String> locationHotel = [
 List<String> urlHotel = [
   'https://g.page/MirageHotelJeddah?share',
   'https://goo.gl/maps/qgMNr7RJMXRxWkLp6',
-  ' ',
+  'https://g.page/karatoon?share',
   'https://g.page/cpjeddah?share',
   'https://g.page/tajjeddah?share',
 ];
@@ -389,7 +389,7 @@ List<String> urlSearch = [
   'https://goo.gl/maps/ZbZ55jEcuHkeT9EV7',
   'https://g.page/MirageHotelJeddah?share',
   'https://goo.gl/maps/qgMNr7RJMXRxWkLp6',
-  ' ',
+  'https://g.page/karatoon?share',
   'https://g.page/cpjeddah?share',
   'https://g.page/tajjeddah?share',
   'https://goo.gl/maps/jg68n6eUoXxjCZrx9',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/pleases/info_please.dart';
 
+// ignore: must_be_immutable
 class Pleases extends StatelessWidget {
   Pleases(
       {required this.lisr,

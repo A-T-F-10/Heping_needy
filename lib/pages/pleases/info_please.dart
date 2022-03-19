@@ -7,6 +7,7 @@ import 'package:holping_needy_project/models/info/volunteer_show_dialog.dart';
 import 'package:holping_needy_project/pages/homepage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class InofPlease extends StatelessWidget {
   InofPlease(this.lisr, this.item, {required this.imageListb, Key? key})
       : super(key: key);

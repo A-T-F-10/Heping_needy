@@ -48,7 +48,7 @@ class Search extends SearchDelegate {
                   builder: (__) => InofPlease(
                         search,
                         itme,
-                        imageListb: [],
+                        imageListb: images,
                       )));
             },
             title: Text(matchQuery[itme]),
@@ -80,7 +80,7 @@ class Search extends SearchDelegate {
                   builder: (__) => InofPlease(
                         search,
                         itme,
-                        imageListb: [],
+                        imageListb: images,
                       )));
             },
             title: Text(matchQuery[itme]),
