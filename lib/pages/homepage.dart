@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
         unselectedLabelColor: Colors.white70,
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorPadding: EdgeInsets.all(5.0),
-        indicatorColor: Colors.blue,
+        indicatorColor: Colors.cyan,
         tabs: [
           Tab(
             text: TKeys().home,

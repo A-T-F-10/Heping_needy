@@ -52,7 +52,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
                 onChanged: (c) {},
                 focusColor: ColorsTheme.darkPrimaryColor,
                 hoverColor: ColorsTheme.secondColor,
-                activeColor: ColorsTheme.blackColor,
+                activeColor: ColorsTheme.darkPrimaryColor,
               ),
             ],
           ),
@@ -67,7 +67,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
               color: ColorsTheme.darkPrimaryColor),
           Slider(
             activeColor: ColorsTheme.darkPrimaryColor,
-            inactiveColor: ColorsTheme.whiteColor,
+            inactiveColor: ColorsTheme.sliderdColor,
             value: valueChange,
             onChanged: (c) {
               setState(() {
@@ -78,7 +78,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
             max: 10,
             min: 0,
             label: 'تكبير',
-            thumbColor: ColorsTheme.blackColor,
+            thumbColor: ColorsTheme.primaryColor,
           ),
           customText(
               size: MediaQuery.of(context).size.height / 30,
@@ -86,7 +86,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
               color: ColorsTheme.darkPrimaryColor),
           Slider(
             activeColor: ColorsTheme.darkPrimaryColor,
-            inactiveColor: ColorsTheme.whiteColor,
+            inactiveColor: ColorsTheme.sliderdColor,
             value: controller.value,
             onChanged: (c) {
               controller.value = c;
@@ -96,7 +96,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
             max: 10,
             min: 0,
             label: 'درجة اللون',
-            thumbColor: ColorsTheme.blackColor,
+            thumbColor: ColorsTheme.primaryColor,
           ),
         ],
       ),

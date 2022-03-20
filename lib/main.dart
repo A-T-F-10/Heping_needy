@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       locale: Locale(locale),
       fallbackLocale: Locale(locale),
       debugShowCheckedModeBanner: false,
-      theme: ColorsTheme.themeData,
+      theme: ColorsTheme.themeDark,
       scaffoldMessengerKey: Utils.messengerKey,
       home: HomePage(),
     );
