@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:holping_needy_project/core/utils/getx_controller.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/search.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
@@ -138,14 +140,18 @@ class HomeContaintPage extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           color: ColorsTheme.darkPrimaryColor,
         ),
-        child: Text(
-          places,
-          style: TextStyle(
-            color: ColorsTheme.whiteColor,
-            fontSize: SizeConfig.defaultSize! * 1.8,
-          ),
-          textAlign: TextAlign.center,
-        ),
+        child: GetBuilder<ChengegetxController>(
+            init: ChengegetxController(),
+            builder: (context) {
+              return Text(
+                places,
+                style: TextStyle(
+                  color: ColorsTheme.whiteColor,
+                  fontSize: SizeConfig.defaultSize! * context.sizex,
+                ),
+                textAlign: TextAlign.center,
+              );
+            }),
         height: SizeConfig.screenHeight! / 10,
         width: SizeConfig.screenWidth! / 2.5,
         alignment: Alignment.center,

@@ -29,6 +29,7 @@ class LogInState extends State<LogIn> {
         key: globalKey,
         backgroundColor: ColorsTheme.secondColor,
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             TKeys().login,
           ),
@@ -48,7 +49,7 @@ class LogInState extends State<LogIn> {
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
                     // key: formkey,
-                    labelText: 'Email',
+                    labelText: TKeys().email,
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
                     errmess: "Please Fill email Input",
@@ -59,7 +60,7 @@ class LogInState extends State<LogIn> {
                 height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
                 child: TextFormFieldItem(
-                    labelText: 'Passwoed',
+                    labelText: TKeys().password,
                     controller: passward,
                     obscureText: true,
                     keyboardType: TextInputType.visiblePassword,
@@ -67,7 +68,7 @@ class LogInState extends State<LogIn> {
                     hintText: "Please  enter your password "),
               ),
               button(
-                  textButton: 'Log in',
+                  textButton: TKeys().login,
                   onPressed: () async {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
@@ -94,11 +95,11 @@ class LogInState extends State<LogIn> {
                   }),
               // const SizedBox(height: 30),
               textAndButton(
-                  text: 'Forget your passward ?',
+                  text: 'Forget your passward?',
                   onPressed: () {},
                   textButton: 'reset'),
               textAndButton(
-                  text: 'Don\'t have an account ?',
+                  text: 'Don\'t have an account?',
                   onPressed: () {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => SignUp()));

@@ -8,15 +8,15 @@ class AppLang extends GetxController {
   void onInit() async {
     super.onInit();
     LocaleStorage localeStorage = LocaleStorage();
-    appLang = await localeStorage.languageSelected == null
+    appLang = localeStorage.languageSelected == null
         ? 'en'
         : await localeStorage.languageSelected;
 
-    Get.updateLocale(Locale(appLang));
+    Get.updateLocale(Locale(appLang.toString()));
     update();
   }
 
-  changelang(String type) async {
+  changelang({String type = ''}) async {
     LocaleStorage localeStorage = LocaleStorage();
     if (appLang == type) {
       return;

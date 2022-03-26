@@ -25,7 +25,7 @@ class SwitchLanguageApp extends StatelessWidget {
               ],
               value: c.appLang,
               onChanged: (v) {
-                c.changelang(v.toString());
+                c.changelang(type: v.toString());
                 Get.updateLocale(Locale(v.toString()));
               });
         });

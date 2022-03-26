@@ -29,10 +29,18 @@ class SharedpreferancesSignup {
     }
   }
 
-  static Future<String> getData(String key) async {
+  Future seveThemeSizeDara({theme, size}) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    if (size != null) {
+      sharedPreferences.setDouble(KeysSharedpreferances.SIZE, size);
+    } else if (theme != null) {
+      sharedPreferences.setString(KeysSharedpreferances.THEME, theme);
+    }
+  }
+
+  static Future getData(String key) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String data = sharedPreferences.get(key).toString();
-    ;
     return data;
   }
 }

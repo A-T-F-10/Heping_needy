@@ -7,4 +7,7 @@ class KeysSharedpreferances {
   static String TYPE = 'type';
   static String LOCATION = 'location';
   static String PASSWORD = 'password';
+  static String THEME = 'themeData';
+  static String SIZE = 'size';
+  static String VALUE = 'value';
 }
