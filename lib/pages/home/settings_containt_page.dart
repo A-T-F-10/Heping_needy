@@ -39,6 +39,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
   Widget build(BuildContext context) {
     return GetBuilder<ChengegetxController>(
       init: ChengegetxController(),
+<<<<<<< HEAD
       builder: (controller) {
         print(vv);
         return ListView(
@@ -114,6 +115,79 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
           ],
         );
       },
+=======
+      builder: (controller) => ListView(
+        children: [
+          Container(
+            padding: EdgeInsets.all(12),
+            child: Center(
+              child: customText(
+                  size: MediaQuery.of(context).size.height / 30,
+                  text: TKeys().setting,
+                  color: ColorsTheme.darkPrimaryColor),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              customText(
+                  size: MediaQuery.of(context).size.height / 30,
+                  text: TKeys().reader,
+                  color: ColorsTheme.darkPrimaryColor),
+              Switch(
+                value: change,
+                onChanged: (c) {},
+                focusColor: ColorsTheme.darkPrimaryColor,
+                hoverColor: ColorsTheme.secondColor,
+                activeColor: ColorsTheme.darkPrimaryColor,
+              ),
+            ],
+          ),
+          customText(
+              size: MediaQuery.of(context).size.height / 30,
+              text: TKeys().language,
+              color: ColorsTheme.darkPrimaryColor),
+          SwitchLanguageApp(),
+          customText(
+              size: MediaQuery.of(context).size.height / 30,
+              text: TKeys().fontSize,
+              color: ColorsTheme.darkPrimaryColor),
+          Slider(
+            activeColor: ColorsTheme.darkPrimaryColor,
+            inactiveColor: ColorsTheme.sliderdColor,
+            value: valueChange,
+            onChanged: (c) {
+              setState(() {
+                changerFontSize();
+              });
+            },
+            divisions: 2,
+            max: 10,
+            min: 0,
+            label: 'تكبير',
+            thumbColor: ColorsTheme.primaryColor,
+          ),
+          customText(
+              size: MediaQuery.of(context).size.height / 30,
+              text: TKeys().gradeColor,
+              color: ColorsTheme.darkPrimaryColor),
+          Slider(
+            activeColor: ColorsTheme.darkPrimaryColor,
+            inactiveColor: ColorsTheme.sliderdColor,
+            value: controller.value,
+            onChanged: (c) {
+              controller.value = c;
+              controller.changerColor();
+            },
+            divisions: 2,
+            max: 10,
+            min: 0,
+            label: 'درجة اللون',
+            thumbColor: ColorsTheme.primaryColor,
+          ),
+        ],
+      ),
+>>>>>>> 9026f2d32f75ebc38bd85b621e8f240754b91b34
     );
   }
 
