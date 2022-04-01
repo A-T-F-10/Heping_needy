@@ -40,7 +40,7 @@ class SharedpreferancesSignup {
 
   static Future getData(String key) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String data = sharedPreferences.get(key).toString();
+    dynamic data = sharedPreferences.get(key);
     return data;
   }
 }

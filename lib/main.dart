@@ -1,34 +1,50 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:holping_needy_project/core/features/Splash/presentation/splash_view.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
 import 'package:holping_needy_project/localization/loale_lang/translation.dart';
-import 'package:holping_needy_project/pages/homepage.dart';
+import 'package:holping_needy_project/sharedpreferances/modle_get_date.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  ModleGetDate().gett();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  ThemeData? themeData;
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      if (ModleGetDate.colors == 0.0) {
+        themeData = ColorsTheme.themeLight;
+      } else if (ModleGetDate.colors == 5.0) {
+        themeData = ColorsTheme.theme;
+      } else {
+        themeData = ColorsTheme.themeDark;
+      }
+    });
     String locale = 'ar';
     return GetMaterialApp(
+      themeMode: ThemeMode.system,
+      darkTheme: ColorsTheme.themeDark,
+      home: const SplashView(),
       translations: Translation(),
       locale: Locale(locale),
       fallbackLocale: Locale(locale),
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      theme: ColorsTheme.themeLight,
-=======
-      theme: ColorsTheme.themeDark,
->>>>>>> 9026f2d32f75ebc38bd85b621e8f240754b91b34
       scaffoldMessengerKey: Utils.messengerKey,
-      home: HomePage(),
+      theme: themeData,
     );
   }
 }

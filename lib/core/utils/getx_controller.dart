@@ -1,18 +1,17 @@
 import 'package:get/get.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
+import 'package:holping_needy_project/sharedpreferances/modle_get_date.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ChengegetxController extends GetxController {
-  double valueColors = 0;
+  double valueColors = ModleGetDate.colors;
 
-  double valueSize = 0.0;
-
-  double sizex = 1.5;
+  double valueSize = ModleGetDate.value;
+  double sizex = ModleGetDate.size != 0.0 ? ModleGetDate.size : 2.0;
 
   double getSize = 1.5;
   double getValue = 0;
-
   void changerColor() {
     if (valueColors < 5) {
       Get.changeTheme(ColorsTheme.themeLight);
@@ -21,6 +20,7 @@ class ChengegetxController extends GetxController {
     } else {
       Get.changeTheme(ColorsTheme.themeDark);
     }
+
     update();
   }
 
@@ -35,14 +35,12 @@ class ChengegetxController extends GetxController {
       sizex = 2.5;
       valueSize = 10;
     }
-
     update();
   }
 
-  gett() async {
+  Future gett() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     getSize = preferences.getDouble(KeysSharedpreferances.SIZE)!;
     getValue = preferences.getDouble(KeysSharedpreferances.VALUE)!;
-    // print('git : ${preferences.getDouble(KeysSharedpreferances.SIZE)!}');
   }
 }

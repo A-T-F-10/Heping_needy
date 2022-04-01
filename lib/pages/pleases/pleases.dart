@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:holping_needy_project/core/utils/getx_controller.dart';
 import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/pages/pleases/info_please.dart';
 
@@ -17,31 +19,40 @@ class Pleases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(tkey),
-        ),
-        body: ListView.builder(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(tkey),
+      ),
+      body: ListView.builder(
           itemCount: lisr[0].length,
           itemBuilder: (context, itme) {
-            return Card(
-              margin: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.screenWidth! / 25,
-                  vertical: SizeConfig.screenHeight! / 100),
-              elevation: 10,
-              child: ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (__) => InofPlease(
-                            lisr,
-                            itme,
-                            imageListb: imageList,
-                          )));
-                },
-                title: Text(lisr[0][itme]),
-              ),
-            );
-          },
-        ));
+            return GetBuilder<ChengegetxController>(
+                init: ChengegetxController(),
+                builder: (controller) {
+                  return Card(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.screenWidth! / 25,
+                        vertical: SizeConfig.screenHeight! / 100),
+                    elevation: 10,
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (__) => InofPlease(
+                                  lisr,
+                                  itme,
+                                  imageListb: imageList,
+                                )));
+                      },
+                      title: Text(
+                        lisr[0][itme],
+                        style: TextStyle(
+                            fontSize:
+                                SizeConfig.defaultSize! * controller.sizex),
+                      ),
+                    ),
+                  );
+                });
+          }),
+    );
   }
 }

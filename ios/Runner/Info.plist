@@ -13,6 +13,8 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<string>speech_to_text_example</string>
+	<key>CFBundleName</key>
 	<string>holping_needy_project</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
@@ -28,6 +30,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech Recongnition is required</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is required to record audio</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

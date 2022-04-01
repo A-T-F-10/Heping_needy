@@ -10,7 +10,7 @@ showdailg(BuildContext context, int item) async {
     builder: (context) => Dialog(
       elevation: 10,
       child: SizedBox(
-          height: SizeConfig.screenHeight! * .33,
+          height: SizeConfig.screenHeight! * .44,
           child: Column(
             children: [
               Text(TKeys().volunteer,
@@ -61,29 +61,43 @@ showdailg(BuildContext context, int item) async {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton.icon(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green[500])),
-                      label: Text("Whatsapp  "),
-                      onPressed: () async {
-                        await launch(
-                            "whatsapp://send?phone=${volunteersNumber[item]}");
-                      },
-                      icon: const Icon(
-                        Icons.whatsapp,
-                        color: Colors.white,
-                      )),
-                  ElevatedButton.icon(
-                      label: Text("Call  "),
-                      onPressed: () async {
-                        await launch("tel:${volunteersNumber[item]}");
-                      },
-                      icon: Icon(Icons.call)),
-                ],
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.only(bottom: SizeConfig.screenHeight! / 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton.icon(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.green[500])),
+                        label: Text("Whatsapp  "),
+                        onPressed: () async {
+                          try {
+                            await launch(
+                                "whatsapp://send?phone=${volunteersNumber[item]}");
+                          } catch (e) {
+                            {
+                              print(e);
+                            }
+                          }
+                        },
+                        icon: const Icon(
+                          Icons.whatsapp,
+                          color: Colors.white,
+                        )),
+                    ElevatedButton.icon(
+                        label: Text("Call  "),
+                        onPressed: () async {
+                          try {
+                            await launch("tel:${volunteersNumber[item]}");
+                          } catch (e) {
+                            print(e);
+                          }
+                        },
+                        icon: Icon(Icons.call)),
+                  ],
+                ),
               )
             ],
           )),

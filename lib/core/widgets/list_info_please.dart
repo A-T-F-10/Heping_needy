@@ -5,10 +5,11 @@ Widget listInfoPlease({
   required Icon icon,
   required String title,
   required String yesOrNo,
+  required double size,
 }) {
   return ListTile(
       leading: icon,
       title: Text(title,
-          style: TextStyle(fontSize: SizeConfig.defaultSize! * 1.8)),
+          style: TextStyle(fontSize: SizeConfig.defaultSize! * size)),
       trailing: Text(yesOrNo));
 }

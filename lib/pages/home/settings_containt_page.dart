@@ -6,101 +6,93 @@ import 'package:holping_needy_project/core/utils/size_confg.dart';
 import 'package:holping_needy_project/core/widgets/switch_language.dart';
 import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/sharedpreferances/keys_sharedpreferances.dart';
+import 'package:holping_needy_project/sharedpreferances/modle_get_date.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsContaintPage extends StatefulWidget {
+  const SettingsContaintPage({Key? key}) : super(key: key);
+
   @override
   State<SettingsContaintPage> createState() => _SettingsContaintPageState();
 }
 
 class _SettingsContaintPageState extends State<SettingsContaintPage> {
-  String user = '';
-
-  bool change = true;
-  String currentLan = 'ar';
   String secondLan = 'en';
-  double vv = 0;
+  String currentLan = 'ar';
+  String user = '';
+  bool change = true;
+  double size = ModleGetDate.size;
+  double getDate = ModleGetDate.value;
 
-  save({double? size, double? value}) async {
+  Future save({double? size, double? value, double? theme}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setDouble(KeysSharedpreferances.SIZE, size!);
+    preferences.setDouble(KeysSharedpreferances.THEME, theme!);
     preferences.setDouble(KeysSharedpreferances.VALUE, value!);
-    print('save');
-  }
-
-  gett() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    vv = preferences.getDouble(KeysSharedpreferances.SIZE)!;
-    // getValue = preferences.getDouble(KeysSharedpreferances.VALUE)!;
-    print('git : ${preferences.getDouble(KeysSharedpreferances.SIZE)!}');
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ChengegetxController>(
       init: ChengegetxController(),
-<<<<<<< HEAD
       builder: (controller) {
-        print(vv);
+        print(size);
         return ListView(
           children: [
             Container(
               padding: EdgeInsets.all(12),
               child: Center(
                 child: customText(
-                    size: SizeConfig.defaultSize! * controller.sizex,
-                    text: TKeys().setting,
-                    color: ColorsTheme.darkPrimaryColor),
+                  size: SizeConfig.defaultSize! * controller.sizex,
+                  text: TKeys().setting,
+                ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 customText(
-                    size: MediaQuery.of(context).size.height / 30,
-                    text: TKeys().reader,
-                    color: ColorsTheme.darkPrimaryColor),
+                  size: SizeConfig.defaultSize! * controller.sizex,
+                  text: TKeys().reader,
+                ),
                 Switch(
                   value: change,
                   onChanged: (c) {},
-                  focusColor: ColorsTheme.darkPrimaryColor,
-                  hoverColor: ColorsTheme.secondColor,
-                  activeColor: ColorsTheme.blackColor,
                 ),
               ],
             ),
             customText(
-                size: MediaQuery.of(context).size.height / 30,
+                size: SizeConfig.defaultSize! * size,
                 text: TKeys().language,
                 color: ColorsTheme.darkPrimaryColor),
             const SwitchLanguageApp(),
             customText(
-                size: MediaQuery.of(context).size.height / 30,
-                text: TKeys().fontSize,
-                color: ColorsTheme.darkPrimaryColor),
+              size: SizeConfig.defaultSize! * size,
+              text: TKeys().fontSize,
+            ),
             Slider(
-              activeColor: ColorsTheme.darkPrimaryColor,
-              inactiveColor: ColorsTheme.whiteColor,
               value: controller.valueSize,
               onChanged: (c) async {
                 controller.valueSize = c;
+                if (c == 0) {
+                  size = 2;
+                } else if (c == 5) {
+                  size = 2.5;
+                } else if (c == 10) {
+                  size = 3;
+                }
                 controller.changerSize();
-                // print('test : ${controller.sizex}');
-                save(size: controller.sizex, value: controller.valueSize);
               },
               divisions: 2,
               max: 10,
               min: 0,
               label: 'تكبير',
-              thumbColor: ColorsTheme.blackColor,
             ),
             customText(
-                size: MediaQuery.of(context).size.height / 30,
-                text: TKeys().gradeColor,
-                color: ColorsTheme.darkPrimaryColor),
+              size: SizeConfig.defaultSize! * controller.sizex,
+              text: TKeys().gradeColor,
+            ),
             Slider(
-              activeColor: ColorsTheme.darkPrimaryColor,
-              inactiveColor: ColorsTheme.whiteColor,
               value: controller.valueColors,
               onChanged: (c) {
                 controller.valueColors = c;
@@ -110,88 +102,22 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
               max: 10,
               min: 0,
               label: 'درجة اللون',
-              thumbColor: ColorsTheme.blackColor,
             ),
           ],
         );
       },
-=======
-      builder: (controller) => ListView(
-        children: [
-          Container(
-            padding: EdgeInsets.all(12),
-            child: Center(
-              child: customText(
-                  size: MediaQuery.of(context).size.height / 30,
-                  text: TKeys().setting,
-                  color: ColorsTheme.darkPrimaryColor),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              customText(
-                  size: MediaQuery.of(context).size.height / 30,
-                  text: TKeys().reader,
-                  color: ColorsTheme.darkPrimaryColor),
-              Switch(
-                value: change,
-                onChanged: (c) {},
-                focusColor: ColorsTheme.darkPrimaryColor,
-                hoverColor: ColorsTheme.secondColor,
-                activeColor: ColorsTheme.darkPrimaryColor,
-              ),
-            ],
-          ),
-          customText(
-              size: MediaQuery.of(context).size.height / 30,
-              text: TKeys().language,
-              color: ColorsTheme.darkPrimaryColor),
-          SwitchLanguageApp(),
-          customText(
-              size: MediaQuery.of(context).size.height / 30,
-              text: TKeys().fontSize,
-              color: ColorsTheme.darkPrimaryColor),
-          Slider(
-            activeColor: ColorsTheme.darkPrimaryColor,
-            inactiveColor: ColorsTheme.sliderdColor,
-            value: valueChange,
-            onChanged: (c) {
-              setState(() {
-                changerFontSize();
-              });
-            },
-            divisions: 2,
-            max: 10,
-            min: 0,
-            label: 'تكبير',
-            thumbColor: ColorsTheme.primaryColor,
-          ),
-          customText(
-              size: MediaQuery.of(context).size.height / 30,
-              text: TKeys().gradeColor,
-              color: ColorsTheme.darkPrimaryColor),
-          Slider(
-            activeColor: ColorsTheme.darkPrimaryColor,
-            inactiveColor: ColorsTheme.sliderdColor,
-            value: controller.value,
-            onChanged: (c) {
-              controller.value = c;
-              controller.changerColor();
-            },
-            divisions: 2,
-            max: 10,
-            min: 0,
-            label: 'درجة اللون',
-            thumbColor: ColorsTheme.primaryColor,
-          ),
-        ],
-      ),
->>>>>>> 9026f2d32f75ebc38bd85b621e8f240754b91b34
+      dispose: (dispose) {
+        save(
+            theme: dispose.controller!.valueColors,
+            size: dispose.controller!.sizex,
+            value: dispose.controller!.valueSize);
+        print("${dispose.controller!.sizex}  dispose");
+        ModleGetDate().gett();
+      },
     );
   }
 
-  Widget customText({String text = '', double size = 15, Color? color}) {
+  Widget customText({String text = '', required double size, Color? color}) {
     return Text(
       text,
       style: TextStyle(fontSize: size, color: color),

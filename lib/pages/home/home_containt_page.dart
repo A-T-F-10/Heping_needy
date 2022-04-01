@@ -7,6 +7,7 @@ import 'package:holping_needy_project/localization/t_key_v.dart';
 import 'package:holping_needy_project/models/info/images_list.dart';
 import 'package:holping_needy_project/models/info/info.dart';
 import 'package:holping_needy_project/pages/pleases/pleases.dart';
+import 'package:holping_needy_project/pages/speech_mace.dart';
 import '../../core/utils/colors.dart';
 
 class HomeContaintPage extends StatelessWidget {
@@ -64,7 +65,13 @@ class HomeContaintPage extends StatelessWidget {
                   )),
               prefix: IconButton(
                 icon: const Icon(Icons.mic),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => SpeechMace(),
+                    ),
+                  );
+                },
               ),
               suffix: IconButton(
                 icon: const Icon(Icons.search_rounded),
@@ -137,7 +144,8 @@ class HomeContaintPage extends StatelessWidget {
       onTap: method,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          borderRadius:
+              BorderRadius.all(Radius.circular(SizeConfig.defaultSize! * 1.5)),
           color: ColorsTheme.darkPrimaryColor,
         ),
         child: GetBuilder<ChengegetxController>(
@@ -155,7 +163,7 @@ class HomeContaintPage extends StatelessWidget {
         height: SizeConfig.screenHeight! / 10,
         width: SizeConfig.screenWidth! / 2.5,
         alignment: Alignment.center,
-        margin: const EdgeInsets.all(10),
+        margin: EdgeInsets.all(SizeConfig.defaultSize! / 1.2),
       ),
     );
   }
