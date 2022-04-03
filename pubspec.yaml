@@ -29,6 +29,8 @@ dependencies:
   url_launcher:
   speech_to_text:
   avatar_glow: 
+  grouped_list: 
+  intl: 
  
 
 dev_dependencies:
