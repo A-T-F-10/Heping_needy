@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:holping_needy_project/chats/user_chats.dart';
 import 'package:holping_needy_project/core/features/Splash/presentation/splash_view.dart';
 import 'package:holping_needy_project/core/utils/colors.dart';
 import 'package:holping_needy_project/core/widgets/sigin_mathod.dart';
@@ -47,7 +48,7 @@ class MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: Utils.messengerKey,
       theme: themeData,
-      home: const SplashView(),
+      home: const UserChats(),
     );
   }
 }
