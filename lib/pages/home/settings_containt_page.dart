@@ -20,7 +20,6 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
   String secondLan = 'en';
   String currentLan = 'ar';
   String user = '';
-  bool change = true;
   double size = ModleGetDate.size;
   double getDate = ModleGetDate.value;
 
@@ -36,7 +35,6 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
     return GetBuilder<ChengegetxController>(
       init: ChengegetxController(),
       builder: (controller) {
-        print(size);
         return ListView(
           children: [
             Container(
@@ -56,18 +54,20 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
                   text: TKeys().reader,
                 ),
                 Switch(
-                  value: change,
-                  onChanged: (c) {},
+                  value: controller.chengeView,
+                  onChanged: (c) {
+                    controller.chengeViews();
+                  },
                 ),
               ],
             ),
             customText(
-                size: SizeConfig.defaultSize! * size,
+                size: SizeConfig.defaultSize! * controller.sizex,
                 text: TKeys().language,
                 color: ColorsTheme.darkPrimaryColor),
             const SwitchLanguageApp(),
             customText(
-              size: SizeConfig.defaultSize! * size,
+              size: SizeConfig.defaultSize! * controller.sizex,
               text: TKeys().fontSize,
             ),
             Slider(

@@ -12,6 +12,7 @@ Map<String, String> en = {
   "addPost": "Add Post",
   "signUp": "Sign Up",
   "age": "Age",
+  "contecttext": "Contact Us on ",
   "volunteers": "Volunteers",
   "suitableforthevisually": "Suitable for the visually impaired",
   "suitableforhearing": " Suitable for hearing impaired ",

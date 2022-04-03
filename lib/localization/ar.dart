@@ -17,6 +17,7 @@ Map<String, String> ar = {
   "welcomeToLilaLoginToContinue": "أهلا في LILA للمتابعة تسجيل دخول",
   "userName": "اسم المستخدم",
   "password": "كلمة السر",
+  "contecttext": "تواصل معنا على ",
   "restaurantsAndCoffees": "مطاعم و مقاهي",
   "welcome": "اهلا !",
   "invalidPassword": "كلمة السر يحب ات تكون على الاقل 6 محارف",

@@ -11,7 +11,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   ModleGetDate().gett();
-  runApp(const MyApp());
+  Future.delayed(const Duration(seconds: 2), () {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatefulWidget {
@@ -34,17 +36,18 @@ class MyAppState extends State<MyApp> {
         themeData = ColorsTheme.themeDark;
       }
     });
+
     String locale = 'ar';
     return GetMaterialApp(
       themeMode: ThemeMode.system,
       darkTheme: ColorsTheme.themeDark,
-      home: const SplashView(),
       translations: Translation(),
       locale: Locale(locale),
       fallbackLocale: Locale(locale),
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: Utils.messengerKey,
       theme: themeData,
+      home: const SplashView(),
     );
   }
 }

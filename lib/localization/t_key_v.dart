@@ -8,6 +8,7 @@ class TKeys {
   String connect = "connect".tr;
   String reader = 'reader'.tr;
   String setting = 'setting'.tr;
+  String contecttext = 'contecttext'.tr;
   String login = 'login'.tr;
   String age = "age".tr;
   String password = 'password'.tr;

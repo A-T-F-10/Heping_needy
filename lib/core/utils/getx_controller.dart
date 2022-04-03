@@ -7,11 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ChengegetxController extends GetxController {
   double valueColors = ModleGetDate.colors;
 
+  bool chengeView = false;
+
   double valueSize = ModleGetDate.value;
   double sizex = ModleGetDate.size != 0.0 ? ModleGetDate.size : 2.0;
 
   double getSize = 1.5;
   double getValue = 0;
+
   void changerColor() {
     if (valueColors < 5) {
       Get.changeTheme(ColorsTheme.themeLight);
@@ -21,6 +24,11 @@ class ChengegetxController extends GetxController {
       Get.changeTheme(ColorsTheme.themeDark);
     }
 
+    update();
+  }
+
+  void chengeViews() {
+    chengeView = !chengeView;
     update();
   }
 
